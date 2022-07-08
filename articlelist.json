@@ -1,16 +1,16 @@
  [
  	{
 	 	"label": "Media use attention",
-	 	"url": "articles/article.html"
+	 	"url": "https://raw.githubusercontent.com/Simon-says-magazine/Simon-says/main/articles/article1.html"
  	},
 
  	{
 	 	"label": "Persuasive technology",
-	 	"url": "articles/article2.html"
+	 	"url": "https://raw.githubusercontent.com/Simon-says-magazine/Simon-says/main/articles/article2.html"
  	},
 
  	{
 	 	"label": "Your attention was stolen",
-	 	"url": "articles/article3.html"
+	 	"url": "https://raw.githubusercontent.com/Simon-says-magazine/Simon-says/main/articles/article3.html"
  	}
  ]
