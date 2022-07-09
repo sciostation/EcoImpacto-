@@ -1,16 +1,18 @@
  [
- 	{
-	 	"label": "Media use attention",
-	 	"url": "https://raw.githubusercontent.com/Simon-says-magazine/Simon-says/main/articles/article1.html"
+ 	{	
+ 		"label": "Reclaime the dark",
+	 	"url": "https://raw.githubusercontent.com/Bianca-LM/coolDown/main/articles/ReclaimeTheDark.html"
+
  	},
 
  	{
-	 	"label": "Persuasive technology",
-	 	"url": "https://raw.githubusercontent.com/Simon-says-magazine/Simon-says/main/articles/article2.html"
- 	},
+	 	 
+	 	"label": "Climate change",
+	 	"url": "https://raw.githubusercontent.com/Bianca-LM/coolDown/main/articles/ClimateChange.html"	
+	},
 
  	{
-	 	"label": "Your attention was stolen",
-	 	"url": "https://raw.githubusercontent.com/Simon-says-magazine/Simon-says/main/articles/article3.html"
+	 	"label": "Sustainability of mud",
+	 	"url": "https://raw.githubusercontent.com/Bianca-LM/coolDown/main/articles/SustainabilityOfMud.html"
  	}
  ]
