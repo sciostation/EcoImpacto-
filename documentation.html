@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Documentation</title>
+			<meta charset="utf-8">
+		    <meta name="viewport" content="width=device-widht, inital-scale=1">
+		    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		    <link rel="stylesheet" id="CSS" href="styles/style.css" type="text/css"> 
+		    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		    <script src="scripts/script.js"></script>
+		    <script type="text/javascript" src="scripts/jquery.js"></script>
+		    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		</head>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="index.html">Simon says</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+			    <ul class="navbar-nav">
+					<li class="nav-item">
+					    <a class="nav-link active" href="#">Documentation</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="#">About</a>
+					</li>
+			    </ul>
+			</div>
+	    </nav>
+		<body>
+			<h1>Some issues founded till now</h1>
+			<p>Problems with the regular expressions:
+				<ul>
+					<li>match different word endings without using the encoding (tags for part of speech)</li>
+					<li>match a string composed by different words making sure that it matches also different word endings and each combination</li>
+				</ul>
+				So far I solved this two problems by an if else that first checks if the world is single or composed by more (using the split of spaces and punctuation) and then for each word add the regular expression to find that word in each declination inside the text. All those single matches will compose a unique string match so all the words if inserted together will be searched and found together.
+			</p>
+			<p>
+				Another problem that I had was that when I first wrote the jQuery function to insert the article inside the html file, I included also the head of the article. This means that when I searched for regular expressions inside the article it founded also the matches inside the metadata but it gave problems since when I wanted to substitute or show them differently counts were different since metadata are not shown.
+			</p>
+			<p>
+				For what concern the handling of the different articles, I decided to have an external json with the uploaded list of the articles. Once the document is loaded it retrieves automatically all the articles and the relatives link, in this way it is easier to upload them (since it is just necessary to add them to the json)
+			</p>
+			<p>
+				Some issues of the regular expressions: 
+				<ul>
+					<li>They don't distinguish between nouns and verbs (for example if yo search "change" (il cambiamento) it will found also "changing"). This brings also to the fact that little words as 'at' found 'as'. To avoid it there is the need of an nltk </li>
+					<li>Till now you can find the -ing form only if you start from the base form (for ex. from "move" you find "moving" from "moved" not).</li>
+					<li>Another problem was that it matched also the words inside the alt attribute of the images. In order to avoid it I added the (?!<=") look behind but it still matches them when the word inside the attribute is not immediatly near the ". </li>
+				</ul>
+			</p>
+			<p>The count is done two times because the first time we find all the occurrences, so it is case insensitive, the second time we manage the occurrences with a span, so we do the match again this time for the exact occurrence (both case insensitive and according to the different suffixes. A problem is that in the first match we do this against the articles text that is without tags. The second time we act against the article content so it matches also the tags.</p>
+			<p>
+				Another problem is that the addnewmetadata function is not called when changing the article, just the addkeywordstobox. This means both that:
+				<ol>
+					<li>New matches won't be found: if I have the form moves in an article and only moved in another article there won't be this word inside the local storage so it won't match</li>
+					<li>Single occurrences could never be changed since there is not a reliable list but just the old one taken from the local storage. The count instead can change since it is the only thing I redo</li>
+				</ol>
+				The best solution is to put the code of the matching pattern in another function, so it can be called both by addnewmetadata and by addfromlocalstorage. The main change will be that it will have a generic list in input that can be both the input list (if it comes from a user input) and the list of uniqueMatches if it comes from the addfromlocalstorage. In this way, even if it has already the main matches it will search for additional combinations and the singleoccurrences function will have reliable data. 
+			</p>
+			<p>
+				In order to work properly, when the matches are 0, it should save the input, so once it goes in the other article it automatically search again the input. But I think it's not a big deal that the user search again the word in another text, if he/she is intersted in it, I mean it is pretty authomatic. </br>
+				
+			</p>
+			<h1>Differnt kind of issues</h1>
+			<h2>Metadata</h2>
+			<p>
+				I first putted the label "People" on metadata since I thought that it could be interesting to have a view and an access to informational pages about people involved in the single article. However as soon as I started to encode this information by HTML, I found out a problem: should groups and organizations must be considered people? In general those figures are called actors, but since we are building up a megazine, I think it is a good idea to keep it readible and easy to access. So I have two options: create another box, so I have one for people and one for organizations (funny fuct: I will have, for ex., the label US both in organizations and places since it is used both to state that the nation did something and that events took place in that nation), or to create a single box but with a more meaningful name, that I think it is the best solution. 
+			</p>
+			<p>Metadata are organized as follows:
+				<ul>
+					<li>There is the info box with title, author, date of publication and maybe argument. </li>
+					<li>Near there is the box of the keywords that can be freely added</li>
+					<li>Then there is probably an accordion with people, organizations, places, events and references:
+						<ul>
+							<li>People: just every person that is cited</li>
+							<li>Organizations: a label decided for agents that are not a specific person (organizations, fundations, but for ex. also States if they are considered as the rulers or as living entities) as well as laboratories and research points, which is not appropriate to refer to as places</li>
+							<li>Places: just the cited places that can be cities or states etc.</li>
+							<li>Events: specific events, but not necessarily in a short time (for ex. are considered events also the causes against the court)</li>
+							<li>References: every reference to an act, an article that are not contained or cannot be considered bibliography, it acts kind of an 'other' section</li>
+						</ul>
+						What all those sections have in common is the fact that they will contain only official labels. For this reason, sometimes if a reference to one of this categories is too generic (for ex. the court for the Supreme Court) this won't be added, since it happens when it is near an already extended citations. For the computer it is difficult to understand that the Supreme Court and the court are the same in that context, for the human being it is simple, that's why we use those abbreviations also in official texts. So I think that since those are articles, for the informative aim it is enough to retrieve all the officials labels (unambiguous ones) and to allow the user to jump where they occur. If nearby there is a non-official referement I am sure the user will see it while reading.
+					</li>
+				</ul>
+			</p>
+			<h2>General organization</h2>
+			<p>Nav</p>
+			<p>Metadata section</p>
+			<p>Forms for metadata</p>
+			<p>List with links to articles</p>
+			<p>Floating action button (FAB) to change style</p>
+			<h2>Styles</h2>
+			<h3>Futurism</h3>
+			<p>
+				<ul>
+					<li>Sans-serif</li>
+					<li>Deconstruction of space: rectangles, triangles, ellipses</li>
+					<li>3D and time shown</li>
+					<li>Variation in type size</li>
+					<li>Machine-inspired</li>
+					<li>Clear intentional ratio: 1:2 (50% - 100%), 2:3 (66,7% - 100%) , 5:8 (62,5% - 100%), 5:9 (55,5% - 100%) (all approximations of the golden ration, made by?). We will use 5:8 and 1:2 since they are the less approximated.</li>
+				</ul>
+			</p>
+			<p>The background color (#e69737) of the aside is taken from the Zang Tumb Tumb (1914) by Filippo Tommaso Marinetti:
+				<img src="images/futurismo.png" alt="Zang Tumb Tumb (1914) by Filippo Tommaso Marinetti">
+			</p>
+			<h2>References</h2>
+			<ul>
+				<li>https://guity-novin.blogspot.com/2019/02/chapter-42-swiss-grid-system-and-dutch.html</li>
+				<li>http://guity-novin.blogspot.com/2011/08/chapter-44-italian-futurist-visual.html</li>
+				<li>http://guity-novin.blogspot.com/2013/03/a-history-of-magazine-covers.html</li>
+				<li>http://guity-novin.blogspot.com/2014/07/chapter-70-history-of-color-color-wheel.html</li>
+				<li>https://www.pixartprinting.co.uk/blog/futurism-book-objects/</li>
+				<li>https://www.nps.gov/parkhistory/online_books/brochures/unigrid/index.htm</li>
+				<li>https://www.printmag.com/article/the-history-of-typography-in-print-magazine/</li>
+			</ul>
+		</body>
+	</html>

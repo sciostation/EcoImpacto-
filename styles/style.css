@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Open+Sans:wght@700&display=swap');
+
+body {
+	font-family: 'EB Garamond', serif;
+	text-align: justify;
+	background-color: #E5EEFF;
+}
+
+nav, h1, h2, h3 {
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+}
+
+nav {
+	background-color: #1258DC;
+}
+
+#brand {
+	padding-left: 0.5em;
+	font-weight: bold;
+}
+
+nav a, #dropdownMenuButton {
+	color: white;
+}
+
+nav a:hover {
+	background-color: white;
+}
+
+#dropdownMenu {
+	background-color: #1258DC;
+	color: white;
+}
+
+#dropdownMenu a:hover {
+	background-color: #FCBA12;
+	color: black;
+	cursor: pointer;
+}
+
+#firstsection {
+	margin: 2%;
+}
+
+aside {
+	align-content: center;
+	order: 2;
+	left: 25%;
+	background-color: #ffffff;
+	padding:2%;
+}
+
+button {
+	background-color: #9424EB;
+	color: white;
+	border-color: #700CBC;
+}
+
+#articleContainer {
+	order: 1;
+}
+
+#article{
+	align-content: center;
+	width: 150%;
+	padding: 2%;
+	background-color: #ffffff;
+}
+
+#initialLetter {
+	font-size: 5em;
+	font-weight: bold;
+	color: #FCBA12;
+}
+
+.hidden {
+	display: none;
+}
+
+#articleslist {
+	list-style: none;
+	padding: 5%;
+}
+
+#metadataBox {
+	margin:5%;
+}
+
+.accordion {
+	background-color: #eee;
+	color: #444;
+	cursor: pointer;
+	padding: 5%;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+}
+
+#metadataBox .meta-content {
+	overflow-y: scroll;
+	max-height: 12em;
+	width:100%;
+}
+
+#keywords span {
+  	width: 50%;
+	background-color: orange;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.keywords-background {
+	background-color: #FCBA12;
+}
+
+.people-background {
+	background-color:#FC600A;
+}
+
+.organizations-background {
+	background-color: red;
+}
+
+.places-background {
+	background-color: #66a3ff;
+}
+
+.references-background {
+	background-color: #8080ff;
+}
+
+aside h3, aside p, form {
+	padding-left: 5%;
+  	width: 100%;
+}
+
+form[type="button"] {
+	display: inline-block;
+}
+
+input[type=checkbox i]:checked {
+	accent-color: #1258DC;
+}
+
+aside #cleanAll {
+	margin-left: 5%;
+	width: 90%;
+	align-content: center;
+}
+
+#metadataBox button {
+	background-color: #FCBA12;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#metadataBox button:focus {
+	background-color: #1258DC;
+	outline: none;
+	color: white;
+}
+
+img {
+	width: 80%;
+}
+
+#secondsection { 
+	border: 0.3em #8080ff solid;
+	order: 3;
+	display: none;
+}
+
+.fab-container{
+	display: flex;
+	flex-direction: column;
+	position:fixed;
+	justify-content: flex-end;
+	bottom:2.5em;
+	right:2.5em;
+	cursor:pointer;
+	z-index: 2;
+
+}
+
+.fab-button{
+	width: 4em;
+	height: 4em;
+	border-radius: 100%;
+	box-shadow: 0.5em 0.5em 0.2em #aaaaaa;
+	bottom: 5em;
+	right: 0;
+	background:#66e0ff;
+	border: none;
+	margin: 10%;
+}
+
+.fab-button i{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	height: 100%;
+	font-size: 1.3em;
+	color:black;
+}
+
+.fab-container div {
+	display: block;
+}
+
+.fab-container button {
+	display: none;
+}
+
+.fab-container:hover button {
+	display: block;
+}
+
+.fab-container button:hover i {
+	display: none;
+}
+
+.fab-container #year2022:hover::after {
+	content: "2022";
+}
+
+.fab-container #year1920:hover::after {
+	content: "1920";
+}
+
+.fab-container #year1890:hover::after {
+	content: "1890";
+}
+
+/*
+.options {
+	display: none;
+	list-style-type: none;
+	
+}
+
+
+.options li {
+	display:flex;
+	justify-content:flex-end;
+	padding:5px;
+}
+
+
+.fab-container:hover:nth-child(2) {
+	transition: translateY(-70px) 0.5s linear;
+}
+.fab-container:hover:nth-child(3) {
+	transition: translateY(-140px) 0.5s linear;
+}
+.fab-container:hover:nth-child(4) {
+	transition: translateY(-200px) 0.5s linear;
+}
+
+.fab-container:hover .options {
+	display: block;
+	position:absolute;
+	bottom:70px;
+	right:0;
+}
+*/
+
+footer {
+	width: 100%;
+	text-align: center;
+	background-color: #c1b9c6;
+	bottom: 0;
+	clear: both;
+	display: block;
+	min-height: 15em;
+}
+
+@media only screen and (max-width: 992px) {
+	#firstsection {
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+
+	aside {
+		order: 1;
+		left:0;
+	}
+
+	#articleContainer {
+		order: 2;
+	}
+
+	#article {
+		width: 100%;
+	}
+
+	#secondsection {
+		display: inline-block;
+		width: 100%;
+	}
+
+	#hiddenMetadataBox {
+		display: block;
+	}
+}
