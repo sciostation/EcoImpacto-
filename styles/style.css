@@ -183,7 +183,7 @@ figure:nth-child(odd) {
 	left: 30%;
 }
 
-figurecaption {
+figcaption {
 	font-size: 60%;
 	font-style: italic;
 }
