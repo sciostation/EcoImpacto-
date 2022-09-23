@@ -204,6 +204,7 @@ figure:nth-child(odd) {
 	background:#1258DC;
 	border: none;
 	margin: 10%;
+	color: white;
 }
 
 .fab-button i{
