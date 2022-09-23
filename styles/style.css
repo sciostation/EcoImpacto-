@@ -168,6 +168,14 @@ img {
 	width: 80%;
 }
 
+figure:nth-child(even) {
+	float:left;
+}
+
+figure:nth-child(odd) {
+	float:right;
+}
+
 #secondsection { 
 	border: 0.3em #8080ff solid;
 	order: 3;
@@ -193,7 +201,7 @@ img {
 	box-shadow: 0.5em 0.5em 0.2em #aaaaaa;
 	bottom: 5em;
 	right: 0;
-	background:#66e0ff;
+	background:#1258DC;
 	border: none;
 	margin: 10%;
 }
