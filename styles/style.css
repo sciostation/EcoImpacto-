@@ -171,6 +171,7 @@ img {
 figure {
 	width: 60%;
 	clear: both;
+	margin: 1%;
 }
 
 figure:nth-child(even) {
@@ -179,7 +180,7 @@ figure:nth-child(even) {
 
 figure:nth-child(odd) {
 	float:right;
-	left: 25%;
+	left: 30%;
 }
 
 figurecaption {
