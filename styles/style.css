@@ -9,6 +9,7 @@ body {
 nav, h1, h2, h3 {
 	font-family: 'Open Sans', sans-serif;
 	text-align: center;
+	text-transform: lowercase;
 }
 
 nav {
@@ -43,6 +44,10 @@ nav a:active, #dropdownMenuButton:active {
 	background-color: #FB9902;
 	color: black;
 	cursor: pointer;
+}
+
+#smaller, #bigger {
+	color: #FB9902
 }
 
 #firstsection {
