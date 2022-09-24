@@ -303,12 +303,12 @@ figcaption {
 footer {
 	width: 100%;
 	text-align: center;
-	background-color: #505258;
+	background-color: #8C8F97;
 	bottom: 0;
 	clear: both;
 	display: block;
 	min-height: 15em;
-	color: #FB9902;
+	color: #F7E9D4;
 }
 
 @media only screen and (max-width: 992px) {
