@@ -25,7 +25,13 @@ nav a, #dropdownMenuButton {
 }
 
 nav a:hover {
-	background-color: white;
+	background-color: #FCBA12;
+	color: black;
+}
+
+nav a:active {
+	background-color: #FCBA12;
+	color: black;
 }
 
 #dropdownMenu {
@@ -297,11 +303,12 @@ figcaption {
 footer {
 	width: 100%;
 	text-align: center;
-	background-color: #c1b9c6;
+	background-color: #505258;
 	bottom: 0;
 	clear: both;
 	display: block;
 	min-height: 15em;
+	color: #FB9902;
 }
 
 @media only screen and (max-width: 992px) {
