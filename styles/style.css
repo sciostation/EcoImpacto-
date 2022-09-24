@@ -182,6 +182,14 @@ aside #cleanAll {
 	color:white;
 }
 
+.meta-conten {
+	background-color: white;
+}
+
+.meta-conten .label:hover {
+	cursor: pointer;
+}
+
 img {
 	width: 90%;
 }
