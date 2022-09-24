@@ -24,12 +24,12 @@ nav a, #dropdownMenuButton {
 	color: white;
 }
 
-nav a:hover {
+nav a:hover, #dropdownMenuButton:hover {
 	background-color: #FCBA12;
 	color: black;
 }
 
-nav a:active {
+nav a:active, #dropdownMenuButton:active {
 	background-color: #FCBA12;
 	color: black;
 }
