@@ -25,12 +25,12 @@ nav a, #dropdownMenuButton {
 }
 
 nav a:hover, #dropdownMenuButton:hover {
-	background-color: #FCBA12;
+	background-color: /*#FCBA12*/#FB9902;
 	color: black;
 }
 
 nav a:active, #dropdownMenuButton:active {
-	background-color: #FCBA12;
+	background-color: #FB9902;
 	color: black;
 }
 
@@ -40,7 +40,7 @@ nav a:active, #dropdownMenuButton:active {
 }
 
 #dropdownMenu a:hover {
-	background-color: #FCBA12;
+	background-color: #FB9902;
 	color: black;
 	cursor: pointer;
 }
@@ -77,7 +77,7 @@ button {
 #initialLetter {
 	font-size: 5em;
 	font-weight: bold;
-	color: #FCBA12;
+	color: #FB9902;
 }
 
 .hidden {
@@ -121,7 +121,7 @@ button {
 }
 
 .keywords-background {
-	background-color: #FCBA12;
+	background-color: #FB9902;
 }
 
 .people-background {
@@ -160,7 +160,7 @@ aside #cleanAll {
 }
 
 #metadataBox button {
-	background-color: #FCBA12;
+	background-color: #FB9902;
 	font-family: 'Open Sans', sans-serif;
 }
 
