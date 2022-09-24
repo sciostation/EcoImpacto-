@@ -3,7 +3,7 @@
 body {
 	font-family: 'EB Garamond', serif;
 	text-align: justify;
-	background-color: /*#E5EEFF*/white;
+	background-color: /*#E5EEFF*/#F7E9D4;
 }
 
 nav, h1, h2, h3 {
@@ -177,6 +177,7 @@ aside #cleanAll {
 
 img {
 	width: 90%;
+	margin: 2%;
 }
 
 figure {
@@ -266,39 +267,6 @@ figcaption {
 .fab-container #year1890:hover::after {
 	content: "1890";
 }
-
-/*
-.options {
-	display: none;
-	list-style-type: none;
-	
-}
-
-
-.options li {
-	display:flex;
-	justify-content:flex-end;
-	padding:5px;
-}
-
-
-.fab-container:hover:nth-child(2) {
-	transition: translateY(-70px) 0.5s linear;
-}
-.fab-container:hover:nth-child(3) {
-	transition: translateY(-140px) 0.5s linear;
-}
-.fab-container:hover:nth-child(4) {
-	transition: translateY(-200px) 0.5s linear;
-}
-
-.fab-container:hover .options {
-	display: block;
-	position:absolute;
-	bottom:70px;
-	right:0;
-}
-*/
 
 footer {
 	width: 100%;
