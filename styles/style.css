@@ -164,6 +164,11 @@ aside #cleanAll {
 	color: white;
 }
 
+#metadataBox button:hover {
+	background-color: #1258DC;
+	color:white;
+}
+
 img {
 	width: 90%;
 }
