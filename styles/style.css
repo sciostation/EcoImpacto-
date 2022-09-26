@@ -82,14 +82,16 @@ button {
 
 #disclaimer {
 	background-color: #F7E9D4;
-	align-content: center;
-	margin: 5%;
-	padding: 5%;
+	margin: 3%;
+	padding: 3%;
 }
 
-#disclaimer h1, #disclaimer p, #disclaimer h2{
-	display: inline;
-	clear: both;
+#disclaimer h1 {
+	color: #FB9902;
+}
+
+#disclaimer h2 {
+	text-transform: none;
 }
 
 #initialLetter {
