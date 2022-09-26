@@ -31,9 +31,8 @@ nav a:hover, #dropdownMenuButton:hover {
 	color: black;
 }
 
-nav a:active, #dropdownMenuButton:active {
-	background-color: #FB9902;
-	color: black;
+#brand:hover {
+	color:black;
 }
 
 #dropdownMenu {
@@ -79,6 +78,13 @@ button {
 	width: 150%;
 	padding: 2%;
 	background-color: #F7E9D4;
+}
+
+#disclaimer {
+	background-color: #F7E9D4;
+	align-content: center;
+	margin: 5%;
+	padding: 5%;
 }
 
 #initialLetter {
