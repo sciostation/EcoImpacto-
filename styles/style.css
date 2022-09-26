@@ -87,6 +87,10 @@ button {
 	padding: 5%;
 }
 
+#disclaimer h1 {
+	display: inline;
+}
+
 #initialLetter {
 	font-size: 5em;
 	font-weight: bold;
