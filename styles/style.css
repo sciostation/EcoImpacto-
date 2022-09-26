@@ -87,8 +87,9 @@ button {
 	padding: 5%;
 }
 
-#disclaimer h1 {
+#disclaimer h1, #disclaimer p, #disclaimer h2{
 	display: inline;
+	clear: both;
 }
 
 #initialLetter {
