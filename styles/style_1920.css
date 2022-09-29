@@ -142,12 +142,7 @@ aside #cleanAll {
 	transition-duration: 0.5s;
 }
 
-#label-info:hover, #label-organizations:hover, #label-places:hover, #label-events:hover {
-	background: #384f49;
-	color: white;
-}
-
-#label-keywords:hover, #label-people:hover, #label-references:hover {
+#metadataBox button:hover {
 	background: #384f49;
 	color: white;
 }
