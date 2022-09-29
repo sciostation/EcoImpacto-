@@ -153,6 +153,10 @@ button {
 }
 
 .places-background {
+	background-color: #00e600;
+}
+
+.events-background {
 	background-color: #66a3ff;
 }
 
