@@ -167,8 +167,7 @@ button {
 .apex {
 	font-size: 70%;
 	position: absolute;
-	transform: translateY(1%);
-	margin-right: 1%;
+	vertical-align: super;
 }
 
 aside h3, aside p, form {
