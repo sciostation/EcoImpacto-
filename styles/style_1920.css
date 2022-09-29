@@ -197,6 +197,10 @@ aside #cleanAll {
 	background-color: #8080ff;
 }
 
+.apex {
+	text-decoration: underline;
+}
+
 input[type=checkbox i]:checked {
 	accent-color: #384f49;
 }
