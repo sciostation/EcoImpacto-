@@ -128,21 +128,21 @@ aside #cleanAll {
 	transition-duration: 0.5s;
 }
 
-#label-people {
+#label-people, #label-organizations {
 	background: linear-gradient(to bottom left, transparent 50%, #e69737 50%);
 	border-right-style: solid;
 	border-color: #384f49;
 	transition-duration: 0.5s;
 }
 
-#label-organizations {
+#label-events {
 	background: linear-gradient(to top right, transparent 50%, #e69737 50%);
 	border-left-style: solid;
 	border-color: #384f49;
 	transition-duration: 0.5s;
 }
 
-#label-info:hover, #label-organizations:hover, #label-places:hover {
+#label-info:hover, #label-organizations:hover, #label-places:hover, #label-events:hover {
 	background: #384f49;
 	color: white;
 }
@@ -186,6 +186,10 @@ aside #cleanAll {
 }
 
 .places-background {
+	background-color: #00e600;
+}
+
+.events-background {
 	background-color: #66a3ff;
 }
 
