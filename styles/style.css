@@ -166,6 +166,7 @@ button {
 
 .apex {
 	font-size: 60%;
+	position: absolute;
 	transform: translateY(5%);
 }
 
