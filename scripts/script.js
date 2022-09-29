@@ -61,7 +61,14 @@ $(document).ready( function(){
 			$('span.place').removeClass('places-background')
 		}
 	});
-	
+	$('#show-events').click(function() {
+		if (this.checked) {
+			$('span.event').addClass('events-background')
+		}
+		else {
+			$('span.event').removeClass('events-background')
+		}
+	});
 	$('#show-references').click(function() {
 		if (this.checked) {
 			$('span.reference').addClass('references-background')
@@ -129,7 +136,7 @@ function addMetadata() {
 	metadataLists("organizations", "organization")
 	metadataLists("places", "place")
 	metadataLists("references", "reference")
-
+	metadataLists("events", "event")
 }
 
 function metadataLists(type, occurrence) {
