@@ -168,6 +168,7 @@ button {
 	font-size: 70%;
 	position: absolute;
 	transform: translateY(5%);
+	margin:2%;
 }
 
 aside h3, aside p, form {
