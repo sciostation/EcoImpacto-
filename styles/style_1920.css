@@ -121,21 +121,21 @@ aside #cleanAll {
 	transition-duration: 0.5s;
 }
 
-#label-keywords,  #label-references {
+#label-keywords,  #label-events {
 	background: linear-gradient(to top left, transparent 50%, #e69737 50%);
 	border-right-style: solid;
 	border-color: #384f49;
 	transition-duration: 0.5s;
 }
 
-#label-people, #label-organizations {
+#label-people, #label-references {
 	background: linear-gradient(to bottom left, transparent 50%, #e69737 50%);
 	border-right-style: solid;
 	border-color: #384f49;
 	transition-duration: 0.5s;
 }
 
-#label-events {
+#label-organizations {
 	background: linear-gradient(to top right, transparent 50%, #e69737 50%);
 	border-left-style: solid;
 	border-color: #384f49;
