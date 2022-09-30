@@ -173,7 +173,6 @@ p + q {
 .apex {
 	font-size: 70%;
 	position: absolute;
-	display: block;
 	vertical-align: super;
 }
 
@@ -243,6 +242,7 @@ figcaption {
 	font-size: 80%;
 	font-style: italic;
 	vertical-align: sub;
+	text-align: center;
 }
 
 #secondsection { 
