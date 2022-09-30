@@ -95,6 +95,7 @@ button {
 }
 
 p+q {
+	width: 80%;
 	text-transform: uppercase;
 	font-size: 120%;
 	padding: 10%;
@@ -236,14 +237,6 @@ figure {
 	width: 100%;
 	clear: both;
 	margin: 3%;
-}
-
-figure:nth-child(even) {
-	float:left;
-}
-
-figure:nth-child(odd) {
-	float:right;
 }
 
 figcaption {
