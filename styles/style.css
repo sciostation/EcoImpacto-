@@ -225,6 +225,7 @@ img {
 
 h1+figure {
 	width: 200%;
+	clear: both;
 }
 
 figure {
