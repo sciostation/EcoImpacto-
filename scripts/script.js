@@ -1,5 +1,15 @@
 $(document).ready( function(){
 
+	var theme = sessionStorage.getItem("theme");
+	console.log(theme)
+	var css = document.getElementById("CSS");
+	console.log(css)
+	if (!theme === null) {
+		css.removeAttribute("href");
+		css.setAttribute("href", theme);
+		console.log(css)
+	}
+
 	$.ajax({
 		method: "GET", 
 		url: "https://raw.githubusercontent.com/Bianca-LM/Information-modelling/main/articlelist.json",
@@ -233,10 +243,12 @@ function changeStyleSheet(element) {
 		d.setAttribute("href", "styles/style.css");
 		removeSpan();
 		addSpanInitialLetter();
+		sessionStorage.setItem("theme", "styles/style.css");
  	}
  	if (nameOfTheStyle == "year1920") {
 		d.setAttribute("href", "styles/style_1920.css");
 		increaseFont();
+		sessionStorage.setItem("theme", "styles/style_1920.css")
  	}
  	// add all the remaining styles
 }
