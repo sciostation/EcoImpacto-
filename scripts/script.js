@@ -84,6 +84,7 @@ function load(url) {
 	if (!path.includes("index.html")) {
 		window.location.href= "../coolDown/index.html";
 	}
+
 	$.ajax({
 		url: url, 
 		method: 'GET',
@@ -229,7 +230,7 @@ $(document).on("click", ".label", function() {
 	}
 })
 
-$(w.articles).on("click", function() {
+$(".articles").on("click", function() {
 	var theme = localStorage.getItem("theme");
 	console.log(theme)
 	var css = document.getElementById("CSS");
