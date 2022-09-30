@@ -223,7 +223,7 @@ img {
 	width: 90%;
 }
 
-h1+figure {
+h1, h1+figure {
 	width: 200%;
 	clear: both;
 }
