@@ -223,12 +223,6 @@ img {
 	width: 90%;
 }
 
-h1, h1+figure {
-	width: 200%;
-	clear: both;
-	margin: 1%;
-}
-
 h1:after {
 	content: "";
 	display: inline-block;
@@ -236,12 +230,6 @@ h1:after {
 	width: 100%;
 	right: 0;
 	border-top: 0.1em solid black;
-}
-
-h1 + p {
-	column-count:1;
-	margin:2%;
-	display: inline-block;
 }
 
 figure {
