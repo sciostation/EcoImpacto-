@@ -94,7 +94,7 @@ button {
 	text-transform: none;
 }
 
-p + q {
+q {
 	text-transform: uppercase;
 	font-size: 120%;
 	padding: 10%;
