@@ -244,7 +244,6 @@ function changeStyleSheet(element) {
 	 if (nameOfTheStyle == "year2022") {
 		d.setAttribute("href", "styles/style.css");
 		removeSpan();
-		addSpanInitialLetter();
 		sessionStorage.setItem("theme", "styles/style.css");
 		alert("SESSION STORAGE", sessionStorage.getItem("theme"))
  	}
