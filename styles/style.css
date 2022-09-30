@@ -6,7 +6,7 @@ body {
 	background-color: #ffffff;
 }
 
-nav, h1, h2, h3, #dropdownMenuButton {
+nav, h1, #dropdownMenuButton {
 	font-family: 'Times New Roman', sans-serif;
 	text-align: center;
 	text-transform: uppercase;
