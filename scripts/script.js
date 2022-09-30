@@ -230,7 +230,7 @@ $(document).on("click", ".label", function() {
 })
 
 $(window).on("load", function() {
-	var theme = sessionStorage.getItem("theme");
+	var theme = localStorage.getItem("theme");
 	console.log(theme)
 	var css = document.getElementById("CSS");
 	console.log(css)
@@ -248,15 +248,15 @@ function changeStyleSheet(element) {
 	 if (nameOfTheStyle == "year2022") {
 		d.setAttribute("href", "styles/style.css");
 		removeSpan();
-		sessionStorage.setItem("theme", "styles/style.css");
-		alert("SESSION STORAGE", sessionStorage.getItem("theme"))
+		localStorage.setItem("theme", "styles/style.css");
+		alert("localStorage STORAGE", localStorage.getItem("theme"))
  	}
  	if (nameOfTheStyle == "year1920") {
 		d.setAttribute("href", "styles/style_1920.css");
 		increaseFont();
-		sessionStorage.setItem("theme", "styles/style_1920.css")
+		localStorage.setItem("theme", "styles/style_1920.css")
 		
-		alert("SESSION STORAGE", sessionStorage.getItem("theme"))
+		alert("localStorage STORAGE", localStorage.getItem("theme"))
  	}
  	// add all the remaining styles
 }
