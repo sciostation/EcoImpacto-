@@ -244,6 +244,7 @@ function changeStyleSheet(element) {
 		removeSpan();
 		addSpanInitialLetter();
 		sessionStorage.setItem("theme", "styles/style.css");
+		console.log(sessionStorage.getItem("theme"))
  	}
  	if (nameOfTheStyle == "year1920") {
 		d.setAttribute("href", "styles/style_1920.css");
