@@ -234,8 +234,10 @@ $(window).on("load", function() {
 	console.log(theme)
 	var css = document.getElementById("CSS");
 	console.log(css)
+	console.log(!theme === null)
 	if (!theme === null) {
 		css.removeAttribute("href");
+		console.log(css)
 		css.setAttribute("href", theme);
 		console.log(css)
 	}
