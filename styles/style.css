@@ -94,6 +94,12 @@ button {
 	text-transform: none;
 }
 
+p + q {
+	text-transform: uppercase;
+	font-size: 120%;
+	padding: 10%;
+}
+
 #initialLetter {
 	font-size: 5em;
 	font-weight: bold;
