@@ -177,6 +177,7 @@ function addKeyToLocalStorage(text, count) {
 }
 
 function addFromLocalStorage() {
+
 	var matches = new Array() 
 	var uniqueMatches = new Array
 
@@ -230,8 +231,8 @@ $(document).on("click", ".label", function() {
 	}
 })
 
-$("nav a").on("click", function() {
-	var theme = localStorage.getItem("theme");
+/*$("nav a").on("click", function() {
+	var theme = sessionStorage.getItem("theme");
 	console.log(theme)
 	var css = document.getElementById("CSS");
 	console.log(css)
@@ -242,7 +243,7 @@ $("nav a").on("click", function() {
 		css.setAttribute("href", theme);
 		console.log(css)
 	}
-})
+})*/
 
 function changeStyleSheet(element) {
 	var d = document.getElementById("CSS");
@@ -251,15 +252,15 @@ function changeStyleSheet(element) {
 	 if (nameOfTheStyle == "year2022") {
 		d.setAttribute("href", "styles/style.css");
 		removeSpan();
-		localStorage.setItem("theme", "styles/style.css");
-		alert("localStorage STORAGE", localStorage.getItem("theme"))
+		sessionStorage.setItem("theme", "styles/style.css");
+		alert("sessionStorage STORAGE", sessionStorage.getItem("theme"))
  	}
  	if (nameOfTheStyle == "year1920") {
 		d.setAttribute("href", "styles/style_1920.css");
 		increaseFont();
-		localStorage.setItem("theme", "styles/style_1920.css")
+		sessionStorage.setItem("theme", "styles/style_1920.css")
 		
-		alert("localStorage STORAGE", localStorage.getItem("theme"))
+		alert("sessionStorage STORAGE", sessionStorage.getItem("theme"))
  	}
  	// add all the remaining styles
 }
