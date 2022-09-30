@@ -236,6 +236,7 @@ figure:nth-child(odd) {
 figcaption {
 	font-size: 80%;
 	font-style: italic;
+	vertical-align: sub;
 }
 
 #secondsection { 
