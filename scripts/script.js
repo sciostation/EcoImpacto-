@@ -229,7 +229,7 @@ $(document).on("click", ".label", function() {
 	}
 })
 
-$(window).on("load", function() {
+$(w.articles).on("click", function() {
 	var theme = localStorage.getItem("theme");
 	console.log(theme)
 	var css = document.getElementById("CSS");
