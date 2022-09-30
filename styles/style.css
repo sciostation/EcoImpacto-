@@ -167,6 +167,7 @@ button {
 .apex {
 	font-size: 70%;
 	position: absolute;
+	display: block;
 	vertical-align: super;
 }
 
