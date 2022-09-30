@@ -1,15 +1,5 @@
 $(document).ready( function(){
 
-	var theme = sessionStorage.getItem("theme");
-	console.log(theme)
-	var css = document.getElementById("CSS");
-	console.log(css)
-	if (!theme === null) {
-		css.removeAttribute("href");
-		css.setAttribute("href", theme);
-		console.log(css)
-	}
-
 	$.ajax({
 		method: "GET", 
 		url: "https://raw.githubusercontent.com/Bianca-LM/Information-modelling/main/articlelist.json",
@@ -232,6 +222,18 @@ $(document).on("click", ".label", function() {
 		$('.label.active').removeClass('active').next().slideUp();
 		$(this).toggleClass("active");
 		$(this).next().slideDown();
+	}
+})
+
+$(window).on("load", function() {
+	var theme = sessionStorage.getItem("theme");
+	console.log(theme)
+	var css = document.getElementById("CSS");
+	console.log(css)
+	if (!theme === null) {
+		css.removeAttribute("href");
+		css.setAttribute("href", theme);
+		console.log(css)
 	}
 })
 
