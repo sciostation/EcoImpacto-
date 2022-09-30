@@ -235,7 +235,6 @@ figure:nth-child(even) {
 
 figure:nth-child(odd) {
 	float:right;
-	left: 30%;
 }
 
 figcaption {
