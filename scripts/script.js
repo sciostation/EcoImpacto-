@@ -230,7 +230,7 @@ $(document).on("click", ".label", function() {
 	}
 })
 
-$(".articles").on("click", function() {
+$("nav a").on("click", function() {
 	var theme = localStorage.getItem("theme");
 	console.log(theme)
 	var css = document.getElementById("CSS");
