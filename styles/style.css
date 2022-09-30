@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Open+Sans:wght@700&display=swap');
 
 body {
-	font-family: 'EB Garamond', serif;
+	font-family: 'Helvetica', serif;
 	text-align: justify;
 	background-color: #ffffff;
 }
 
 nav, h1, h2, h3, #dropdownMenuButton {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Times New Roman', sans-serif;
 	text-align: center;
-	text-transform: lowercase;
+	text-transform: uppercase;
 }
 
 nav {
