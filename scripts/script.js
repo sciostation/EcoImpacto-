@@ -95,6 +95,13 @@ function addCss() {
 }
 
 function load(url) {
+
+	if (!window.location.pathname.includes("index.html")) {
+		top.location.href = "../coolDown/index.html";
+	}
+
+	$(document).ready(function() {
+
 	$.ajax({
 		url: url, 
 		method: 'GET',
@@ -111,6 +118,7 @@ function load(url) {
 			}
 		});
 	sessionStorage.removeItem("url")
+})
 }
 
 $(".articles").on("click", function() {
