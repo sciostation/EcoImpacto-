@@ -2,8 +2,8 @@ $(document).ready( function(){
 
 	var css = document.getElementById("CSS");
 	if (!css.hasAttribute("href")) {
-		css.setAttribute("href", "style/style.css");
-		sessionStorage.setItem("theme", "style/style.css");
+		css.setAttribute("href", "styles/style.css");
+		sessionStorage.setItem("theme", "styles/style.css");
 	}
 
 	else {
