@@ -178,8 +178,9 @@ p+q {
 
 .apex {
 	font-size: 70%;
-	position: absolute;
+	white-space: nowrap;
 	vertical-align: super;
+	padding-left: 1%;
 }
 
 aside h3, aside p, form {
