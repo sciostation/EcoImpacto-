@@ -118,6 +118,8 @@ function load(url) {
 			alert('Loading error');
 			}
 		});
+	
+	sessionStorage.removeItem("url")
 }
 
 
