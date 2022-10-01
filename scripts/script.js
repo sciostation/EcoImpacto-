@@ -27,6 +27,10 @@ $(document).ready( function(){
 		}
 	});
 
+	if(!sessionStorage.getItem("url")==null && windows.location.pathname.includes("index.html")){
+		load(url);
+	}
+
 	$('#show-keywords').click(function() {
 		if (this.checked) {
 			$('span.added-keywords').addClass('keywords-background')
@@ -95,13 +99,6 @@ function addCss() {
 }
 
 function load(url) {
-
-	if (!window.location.pathname.includes("index.html")) {
-		top.location.href = "../coolDown/index.html";
-	}
-
-	$(document).ready(function() {
-
 	$.ajax({
 		url: url, 
 		method: 'GET',
@@ -118,11 +115,14 @@ function load(url) {
 			}
 		});
 	sessionStorage.removeItem("url")
-})
 }
 
 $(".articles").on("click", function() {
 	sessionStorage.setItem("url", url);
+
+	if (!window.location.pathname.includes("index.html")) {
+		top.location.href = "../coolDown/index.html";
+	}
 })
 
 function addInfo() {
