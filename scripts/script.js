@@ -82,7 +82,7 @@ $(document).ready( function(){
 
 function addCss() {
 	var css = document.getElementById("CSS");
-	if (!sessionStorage.getItem("theme")==null) {
+	if (sessionStorage.getItem("theme")==null) {
 		css.setAttribute("href", "styles/style.css");
 	}
 	else {
