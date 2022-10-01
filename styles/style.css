@@ -81,17 +81,12 @@ button {
 }
 
 .secondaryPages {
-	background-color: #F7E9D4;
 	margin: 3%;
 	padding: 3%;
 }
 
-#secondaryPages h1 {
-	color: #FB9902;
-}
-
-#secondaryPages h2 {
-	text-transform: none;
+.secondaryPages img {
+	width: 80%;
 }
 
 p+q {
