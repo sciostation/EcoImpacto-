@@ -27,6 +27,11 @@ $(document).ready( function(){
 		}
 	});
 
+	if (window.location.pathname.includes("index.html")) {
+
+		if (!sessionStorage.getItem("url")==null){
+			load(url);}
+
 	$('#show-keywords').click(function() {
 		if (this.checked) {
 			$('span.added-keywords').addClass('keywords-background')
@@ -78,6 +83,7 @@ $(document).ready( function(){
 			$('span.reference').removeClass('references-background')
 		}
 	});
+}
 })
 
 function addCss() {
@@ -95,6 +101,8 @@ function addCss() {
 }
 
 function load(url) {
+
+	sessionStorage.setItem("url", url)
 	$.ajax({
 		url: url, 
 		method: 'GET',
