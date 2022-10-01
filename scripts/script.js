@@ -88,14 +88,15 @@ $(document).ready( function(){
 
 function addCss() {
 	var css = document.getElementById("CSS");
-	if (!css.hasAttribute("href")) {
+	if (!css.hasAttribute("href") && !sessionStorage.getItem("theme")==null) {
 		css.setAttribute("href", "styles/style.css");
 		sessionStorage.setItem("theme", "styles/style.css");
 	}
-
 	else {
 		var theme = sessionStorage.getItem("theme");
-		css.removeAttribute("href");
+		if (css.hasAttribute("href")){
+			css.removeAttribute("href");
+		}
 		css.setAttribute("href", theme);
 	}
 }
