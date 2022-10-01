@@ -27,11 +27,12 @@ $(document).ready( function(){
 		}
 	});
 
+	$(window).on("load", function() {
 	if (window.location.pathname.includes("index.html")) {
 
 		if (!sessionStorage.getItem("url")==null){
 			load(url);}
-
+		
 	$('#show-keywords').click(function() {
 		if (this.checked) {
 			$('span.added-keywords').addClass('keywords-background')
@@ -84,6 +85,7 @@ $(document).ready( function(){
 		}
 	});
 }
+});
 })
 
 function addCss() {
