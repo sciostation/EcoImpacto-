@@ -13,7 +13,7 @@
 	    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	</head>
-	<body onload="checkPendingArticles()">
+	<body>
 	   <nav class="navbar navbar-expand-lg">
 			<a class="navbar-brand active" id="brand" href="#">Cool down!</a>
 			<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -129,7 +129,7 @@
 		    <div class="col-lg-6 col-md-8 col-sm-12" id="articleContainer">
 
 		    		
-		    	<div id="article">
+		    	<div id="article" onload="checkPendingArticles()">
 					<h1><span id="smaller">Cool </span><span id="bigger">down!</span></h1>
 					<p><span id="initialLetter">W</span>elcome to our megazine. In a period of global warming, this is an advertisment: "Cool down!". Here you can find articles related to climate changes, global warming, pollution, researches and interesting things. 
 					</p>
