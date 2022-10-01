@@ -95,13 +95,7 @@ function addCss() {
 }
 
 function load(url) {
-
-	sessionStorage.setItem("url", url)
-
-	var path = window.location.pathname;
-	if (!path.includes("index.html")) {
-		window.location.href= "../coolDown/index.html";
-	}
+	sessionStorage.setItem("url", url);
 
 	$.ajax({
 		url: url, 
