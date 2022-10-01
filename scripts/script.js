@@ -102,7 +102,7 @@ function load(url) {
 		success: function(data) {
 			newArticle = $('#article').html(data);
 			$('#article').replaceWith(newArticle);
-			alert(newArticle)
+			console.log(newArticle)
 			addInfo()
 			addFromLocalStorage()
 			addMetadata()
