@@ -121,7 +121,7 @@ function load(url) {
 }
 
 $(document).ready( function() {
-	if (window.location.includes("index.html")) {
+	if (window.location.pathname.includes("index.html")) {
 		if (!sessionStorage.getItem("url")==null) {
 			var url = sessionStorage.getItem("url");
 			load(url);
