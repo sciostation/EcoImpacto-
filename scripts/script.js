@@ -102,32 +102,29 @@ function load(url) {
 	if (!path.includes("index.html")) {
 		window.location.href= "../coolDown/index.html";
 	}
+
+
 }
 
-function loadArticle(url) {
-	$.ajax({
-		url: url, 
-		method: 'GET',
-		dataType: "html",
-		success: function(data) {
-			newArticle = $('#article').html(data);
-			$('#article').replaceWith(newArticle);
-			addInfo()
-			addFromLocalStorage()
-			addMetadata()
-			},
-		error: function(data) {
-			alert('Loading error');
-			}
-		});
-}
-
-$(window).on("load", function() {
-	if (window.location.pathname.includes("index.html")) {
+$(document).ready( function() {
+	if (window.location.includes("index.html")) {
 		if (!sessionStorage.getItem("url")==null) {
 			var url = sessionStorage.getItem("url");
-			loadArticle(url);
-			alert("LOADED");
+			$.ajax({
+				url: url, 
+				method: 'GET',
+				dataType: "html",
+				success: function(data) {
+					newArticle = $('#article').html(data);
+					$('#article').replaceWith(newArticle);
+					addInfo()
+					addFromLocalStorage()
+					addMetadata()
+					},
+				error: function(data) {
+					alert('Loading error');
+					}
+				});
 			sessionStorage.removeItem("url");
 		}
 	}
