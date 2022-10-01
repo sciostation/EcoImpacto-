@@ -99,7 +99,7 @@ function load(url) {
 		top.location.href = "../coolDown/index.html";
 	}
 
-	$(winidow).on("load", function() {
+	$(window).on("load", function() {
 	$.ajax({
 		url: url, 
 		method: 'GET',
