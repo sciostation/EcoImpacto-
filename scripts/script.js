@@ -82,9 +82,8 @@ $(document).ready( function(){
 
 function addCss() {
 	var css = document.getElementById("CSS");
-	if (!css.hasAttribute("href") && !sessionStorage.getItem("theme")==null) {
+	if (!sessionStorage.getItem("theme")==null) {
 		css.setAttribute("href", "styles/style.css");
-		sessionStorage.setItem("theme", "styles/style.css");
 	}
 	else {
 		var theme = sessionStorage.getItem("theme");
@@ -92,6 +91,7 @@ function addCss() {
 			css.removeAttribute("href");
 		}
 		css.setAttribute("href", theme);
+		alert(theme)
 	}
 }
 
