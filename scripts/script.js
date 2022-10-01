@@ -1,16 +1,5 @@
 $(document).ready( function(){
-
-	var css = document.getElementById("CSS");
-	if (!css.hasAttribute("href")) {
-		css.setAttribute("href", "styles/style.css");
-		sessionStorage.setItem("theme", "styles/style.css");
-	}
-
-	else {
-		var theme = sessionStorage.getItem("theme");
-		css.removeAttribute("href");
-		css.setAttribute("href", theme);
-	}
+	addCss()
 
 	$.ajax({
 		method: "GET", 
@@ -90,6 +79,20 @@ $(document).ready( function(){
 		}
 	});
 })
+
+function addCss() {
+	var css = document.getElementById("CSS");
+	if (!css.hasAttribute("href")) {
+		css.setAttribute("href", "styles/style.css");
+		sessionStorage.setItem("theme", "styles/style.css");
+	}
+
+	else {
+		var theme = sessionStorage.getItem("theme");
+		css.removeAttribute("href");
+		css.setAttribute("href", theme);
+	}
+}
 
 function load(url) {
 	var path = window.location.pathname;
@@ -243,20 +246,6 @@ $(document).on("click", ".label", function() {
 	}
 })
 
-/*$("nav a").on("click", function() {
-	var theme = sessionStorage.getItem("theme");
-	console.log(theme)
-	var css = document.getElementById("CSS");
-	console.log(css)
-	console.log(!theme === null)
-	if (!theme === null) {
-		css.removeAttribute("href");
-		console.log(css)
-		css.setAttribute("href", theme);
-		console.log(css)
-	}
-})*/
-
 function changeStyleSheet(element) {
 	var d = document.getElementById("CSS");
 	d.removeAttribute("href");
@@ -265,16 +254,12 @@ function changeStyleSheet(element) {
 		d.setAttribute("href", "styles/style.css");
 		removeSpan();
 		sessionStorage.setItem("theme", "styles/style.css");
-		alert("sessionStorage STORAGE", sessionStorage.getItem("theme"))
  	}
  	if (nameOfTheStyle == "year1920") {
 		d.setAttribute("href", "styles/style_1920.css");
 		increaseFont();
 		sessionStorage.setItem("theme", "styles/style_1920.css")
-		
-		alert("sessionStorage STORAGE", sessionStorage.getItem("theme"))
  	}
- 	// add all the remaining styles
 }
 
 function addNewMetadata() {
