@@ -244,6 +244,7 @@ input[type=checkbox i]:checked {
 
 .secondaryPages {
 	padding: 2%;
+	align-content:center;
 }
 
 #article, #secondsection {
@@ -282,7 +283,7 @@ input[type=checkbox i]:checked {
 	margin: 2%;
 }
 
-#article p {
+#article p, .secondaryPages p {
 	text-align: justify;
 	text-align-last: justify;
 }
