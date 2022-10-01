@@ -125,6 +125,7 @@ $(document).ready( function() {
 		if (!sessionStorage.getItem("url")==null) {
 			var url = sessionStorage.getItem("url");
 			load(url);
+			alert("LOADED");
 			sessionStorage.removeItem("url");
 		}
 	}
