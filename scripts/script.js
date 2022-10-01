@@ -1,5 +1,17 @@
 $(document).ready( function(){
 
+	var css = document.getElementById("CSS");
+	if (!css.includes("href")) {
+		css.setAttribute("href", "style/stye.css");
+		sessionStorage.setItem("theme", "style/style.css");
+	}
+
+	else {
+		var theme = sessionStorage.getItem("theme");
+		css.removeAttribute("href");
+		css.setAttribute("href", theme);
+	}
+
 	$.ajax({
 		method: "GET", 
 		url: "https://raw.githubusercontent.com/Bianca-LM/Information-modelling/main/articlelist.json",
