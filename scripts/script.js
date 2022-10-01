@@ -95,11 +95,6 @@ function addCss() {
 }
 
 function load(url) {
-	if (!sessionStorage.getItem("url") == null && !window.location.pathname.includes("index.html") ) {
-		top.location.href = "../coolDown/index.html";
-	}
-
-	$(window).on("load", function() {
 	$.ajax({
 		url: url, 
 		method: 'GET',
@@ -115,7 +110,6 @@ function load(url) {
 			alert('Loading error');
 			}
 		});
-	})
 	sessionStorage.removeItem("url")
 }
 
