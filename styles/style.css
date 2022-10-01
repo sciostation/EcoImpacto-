@@ -82,12 +82,21 @@ button {
 
 .secondaryPages {
 	background-color: #F7E9D4;
+	align-content: center;
 	margin: 3%;
 	padding: 3%;
 }
 
+.secondaryPages h2 {
+	color: #FB9902;
+	text-align: center;
+}
+
 .secondaryPages img {
-	width: 80%;
+	display: block;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 p+q {
