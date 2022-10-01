@@ -28,6 +28,7 @@ $(document).ready( function(){
 	});
 
 	if(!sessionStorage.getItem("url")==null && windows.location.pathname.includes("index.html")){
+		top.location.href = "../coolDown/index.html"
 		load(url);
 	}
 
@@ -119,10 +120,6 @@ function load(url) {
 
 $(".articles").on("click", function() {
 	sessionStorage.setItem("url", url);
-
-	if (!window.location.pathname.includes("index.html")) {
-		top.location.href = "../coolDown/index.html";
-	}
 })
 
 function addInfo() {
