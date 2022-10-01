@@ -149,6 +149,13 @@ function addInfo() {
 		dateLi.innerHTML = date[i].innerHTML;
 		ul.appendChild(dateLi);
 	}
+
+	var source = article.getElementsByClassName("originalSource");
+	for (var i=0; i < source.length; i++) {
+		var sourceLi = document.createElement("li");
+		sourceLi.innerHTML = source[i].innerHTML;
+		ul.appendChild(sourceLi);
+	}
 }
 
 function addMetadata() {
