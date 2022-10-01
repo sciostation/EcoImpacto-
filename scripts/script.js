@@ -2,7 +2,7 @@ $(document).ready( function(){
 
 	var css = document.getElementById("CSS");
 	if (!css.hasAttribute("href")) {
-		css.setAttribute("href", "style/stye.css");
+		css.setAttribute("href", "style/style.css");
 		sessionStorage.setItem("theme", "style/style.css");
 	}
 
