@@ -48,18 +48,22 @@
 
 			    <h3>Metadata</h3>  
 			    	<p>Add your own keywords</p>
-			    	<form>
+			    	
+					<form>
 					  	<input type="text" name="metadata" id="userInput" placeholder="Type here">
 	  					<input type="button" value="add" onclick="addNewMetadata()">
+						
+						<button class="accordion keywords-background" id="label-keywords">Keywords</button>
+						<div class="hidden meta-content" id="keywords" role="tabpanel" aria-labelledby="keywords-tab">
+						</div>
+						
+						<button type="reset" id="cleanAll" onclick="clearAll()">Clean keywords</button>
 	  				</form>
 
 				<div class="tab-content" id="metadataBox">
 					<button class="accordion" id="label-info">Info</button>
 					<!-- <button onclick="showOccurrences(this)">Show all</button> -->
 					<div class="hidden meta-content" id="info" role="tabpanel" aria-labelledby="info-tab">
-					</div>
-					<button class="accordion keywords-background" id="label-keywords">Keywords</button>
-					<div class="hidden meta-content" id="keywords" role="tabpanel" aria-labelledby="keywords-tab">
 					</div>
 					<button class="accordion people-background" id="label-people">People</button>
 					<div class="hidden meta-content" id="people" role="tabpanel" aria-labelledby="keywords-tab">
@@ -124,15 +128,14 @@
 						</label>
 					</div>
 				</form>	
-				<button type="reset" id="cleanAll" onclick="clearAll()">Clean keywords</button>
 			</aside>
 		    <div class="col-lg-6 col-md-8 col-sm-12" id="articleContainer">
 
 		    		
 		    	<div id="article">
-					<!--<h1><span id="smaller">Cool </span><span id="bigger">down!</span></h1>
+					<h1><span id="smaller">Cool </span><span id="bigger">down!</span></h1>
 					<p><span id="initialLetter">W</span>elcome to our megazine. In a period of global warming, this is an advertisment: "Cool down!". Here you can find articles related to climate changes, global warming, pollution, researches and interesting things. 
-					</p>-->
+					</p>
 	    		</div>
 
 		    	<div id="triangle"></div>
