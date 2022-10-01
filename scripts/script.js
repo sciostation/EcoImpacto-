@@ -95,6 +95,9 @@ function addCss() {
 }
 
 function load(url) {
+
+	sessionStorage.setItem("url", url)
+
 	var path = window.location.pathname;
 	if (!path.includes("index.html")) {
 		window.location.href= "../coolDown/index.html";
@@ -116,6 +119,17 @@ function load(url) {
 			}
 		});
 }
+
+$(document).ready( function() {
+	if (window.location.includes("index.html")) {
+		if (!sessionStorage.getItem("url")==null) {
+			var url = sessionStorage.getItem("url");
+			load(url);
+			sessionStorage.removeItem("url");
+		}
+	}
+})
+
 
 function addInfo() {
 	var article = document.getElementById("article");
