@@ -80,17 +80,17 @@ button {
 	column-count: 2;
 }
 
-#disclaimer {
+.secondaryPages {
 	background-color: #F7E9D4;
 	margin: 3%;
 	padding: 3%;
 }
 
-#disclaimer h1 {
+#secondaryPages h1 {
 	color: #FB9902;
 }
 
-#disclaimer h2 {
+#secondaryPages h2 {
 	text-transform: none;
 }
 
