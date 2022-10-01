@@ -27,11 +27,6 @@ $(document).ready( function(){
 		}
 	});
 
-	if(!sessionStorage.getItem("url")==null && windows.location.pathname.includes("index.html")){
-		top.location.href = "../coolDown/index.html"
-		load(url);
-	}
-
 	$('#show-keywords').click(function() {
 		if (this.checked) {
 			$('span.added-keywords').addClass('keywords-background')
@@ -121,6 +116,12 @@ function load(url) {
 $(".articles").on("click", function() {
 	sessionStorage.setItem("url", url);
 })
+
+function checkPendingArticles() {
+	if (!sessionStorage.getItem("url") == null) {
+		load(url);
+	}
+}
 
 function addInfo() {
 	var article = document.getElementById("article");
