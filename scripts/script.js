@@ -1,7 +1,7 @@
 $(document).ready( function(){
 
 	var css = document.getElementById("CSS");
-	if (!css.includes("href")) {
+	if (!css.hasAttribute("href")) {
 		css.setAttribute("href", "style/stye.css");
 		sessionStorage.setItem("theme", "style/style.css");
 	}
