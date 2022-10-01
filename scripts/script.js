@@ -120,6 +120,7 @@ $(".articles").on("click", function() {
 function checkPendingArticles() {
 	if (!sessionStorage.getItem("url") == null) {
 		load(url);
+		alert("LOADED")
 	}
 }
 
