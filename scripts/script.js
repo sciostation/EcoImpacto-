@@ -91,7 +91,6 @@ function addCss() {
 			css.removeAttribute("href");
 		}
 		css.setAttribute("href", theme);
-		alert(theme)
 	}
 }
 
