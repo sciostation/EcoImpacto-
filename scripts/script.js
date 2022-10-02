@@ -98,7 +98,7 @@ function load(url) {
 
 	sessionStorage.setItem("url", url);
 	if (!window.location.pathname.includes("index.html")) {
-		window.location.href = "..coolDown/index.html";
+		window.location.href = "https://bianca-lm.github.io/coolDown/"
 	}
 	alert("DONE");
 }
