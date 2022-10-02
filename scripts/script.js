@@ -97,14 +97,14 @@ function addCss() {
 function load(url) {
 
 	sessionStorage.setItem("url", url);
-	if (!window.location.pathname.includes("index.html")) {
+	if (window.location.pathname.includes("documentation.html") || window.location.pathname.includes("about.html")) {
 		window.location.href = "https://bianca-lm.github.io/coolDown/"
 	}
 	alert("DONE");
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-	if (window.location.pathname.includes("index.html")) {
+	if (!window.location.pathname.includes("documentation.html") || !window.location.pathname.includes("about.html")) {
 	if (!sessionStorage.getItem("url") == null) {
 
 		var url = sessionStorage.getItem("url");
