@@ -27,9 +27,10 @@ $(document).ready( function(){
 		}
 	});
 
-	console.log(JSON.parse(sessionStorage.getItem("article")))
 
 	if (!sessionStorage.getItem("article") == null) {
+		
+		console.log(JSON.parse(sessionStorage.getItem("article")))
 		var newArticle = JSON.parse(sessionStorage.getItem("article"))
 		$('#article').replaceWith(newArticle);
 		console.log(newArticle)
