@@ -98,7 +98,7 @@ function load(url) {
 
 	sessionStorage.setItem("url", url);
 	if (!window.location.pathname.includes("index.html")) {
-		top.location.href = "..coolDown/index.html";
+		window.location.href = "..coolDown/index.html";
 	}
 	alert("DONE");
 }
@@ -108,7 +108,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	if (!sessionStorage.getItem("url") == null) {
 
 		var url = sessionStorage.getItem("url");
-		
+
 	$.ajax({
 		url: url, 
 		method: 'GET',
