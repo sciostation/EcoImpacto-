@@ -114,6 +114,7 @@ function load(url) {
 		dataType: "html",
 		success: function(data) {
 			newArticle = $('#article').html(data);
+			alert(newArticle)
 			if (window.location.pathname.includes("documentation.html") || window.location.pathname.includes("about.html")) {
 				sessionStorage.setItem("article", newArticle);
 				console.log("SET", JSON.parse(sessionStorage.article))
