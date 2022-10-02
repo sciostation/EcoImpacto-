@@ -95,6 +95,7 @@ function addCss() {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
+	if (window.location.pathname.includes("index.html")) {
 	if (!sessionStorage.getItem("url") == null) {
 
 		var url = sessionStorage.getItem("url")
@@ -116,10 +117,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		});
 	sessionStorage.removeItem("url")
 	}
+}
 })
 
 $(".articles").on("click", function() {
-	sessionStorage.setItem("url", url)
+	sessionStorage.setItem("url", url);
+	if (!window.location.pathname.includes("index.html")) {
+		top.location.href = "..coolDown/index.html"
+	}
 })
 
 function checkPendingArticles() {
