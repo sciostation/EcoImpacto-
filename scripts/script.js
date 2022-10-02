@@ -27,7 +27,10 @@ $(document).ready( function(){
 		}
 	});
 
+	console.log(JSON.parse(sessionStorage.getItem("article")))
+
 	if (!sessionStorage.getItem("article") == null) {
+		var newArticle = JSON.parse(sessionStorage.getItem("article"))
 		$('#article').replaceWith(newArticle);
 		console.log(newArticle)
 		addInfo()
@@ -111,7 +114,7 @@ function load(url) {
 		success: function(data) {
 			newArticle = $('#article').html(data);
 			if (window.location.pathname.includes("documentation.html") || window.location.pathname.includes("about.html")) {
-				sessionStorage.setItem("article", newArticle);
+				sessionStorage.setItem("article", JSON.stringify(newArticle);
 				window.location.href = "https://bianca-lm.github.io/coolDown/";
 			}
 			else {
