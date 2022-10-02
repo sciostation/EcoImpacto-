@@ -112,6 +112,7 @@ function load(url) {
 			newArticle = $('#article').html(data);
 			if (window.location.pathname.includes("documentation.html") || window.location.pathname.includes("about.html")) {
 				sessionStorage.setItem("article", newArticle);
+				winidow.location.href = "https://bianca-lm.github.io/coolDown/";
 			}
 			else {
 				$('#article').replaceWith(newArticle);
