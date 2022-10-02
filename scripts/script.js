@@ -14,8 +14,8 @@ $(document).ready( function(){
 				else {
 					var url = String(obj.url);
 					var label = obj.label;
-					var listItem = "<li><button class='articles' onclick='load(\"" + url + "\")'>" + label + "</button></li>";
-					var linkItem = "<a class='dropdown-item' onclick='load(\"" + url + "\")'>" + label + "</a>"
+					var listItem = "<li><button class='articles'>" + label + "</button></li>";
+					var linkItem = "<a class='dropdown-item'>" + label + "</a>"
 
 					$('#articleslist').append(listItem);
 					$('#dropdownMenu').append(linkItem);
