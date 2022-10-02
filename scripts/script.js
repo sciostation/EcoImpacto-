@@ -27,6 +27,15 @@ $(document).ready( function(){
 		}
 	});
 
+	if (!sessionStorage.getItem("article") == null) {
+		$('#article').replaceWith(newArticle);
+		console.log(newArticle)
+		addInfo()
+		addFromLocalStorage()
+		addMetadata()
+		sessionStorage.removeItem("article")
+	}
+
 	$('#show-keywords').click(function() {
 		if (this.checked) {
 			$('span.added-keywords').addClass('keywords-background')
@@ -95,40 +104,28 @@ function addCss() {
 }
 
 function load(url) {
-
-	sessionStorage.setItem("url", url);
-	if (window.location.pathname.includes("documentation.html") || window.location.pathname.includes("about.html")) {
-		window.location.href = "https://bianca-lm.github.io/coolDown/"
-	}
-	alert("DONE");
-}
-
-window.addEventListener('DOMContentLoaded', (event) => {
-	if (!window.location.pathname.includes("documentation.html") || !window.location.pathname.includes("about.html")) {
-	if (!sessionStorage.getItem("url") == null) {
-
-		var url = sessionStorage.getItem("url");
-
 	$.ajax({
 		url: url, 
 		method: 'GET',
 		dataType: "html",
 		success: function(data) {
 			newArticle = $('#article').html(data);
-			$('#article').replaceWith(newArticle);
-			console.log(newArticle)
-			addInfo()
-			addFromLocalStorage()
-			addMetadata()
-			},
+			if (window.location.pathname.includes("documentation.html") || window.location.pathname.includes("about.html")) {
+				sessionStorage.setItem("article", newArticle);
+			}
+			else {
+				$('#article').replaceWith(newArticle);
+				console.log(newArticle)
+				addInfo()
+				addFromLocalStorage()
+				addMetadata()
+			}
+		},
 		error: function(data) {
 			alert('Loading error');
-			}
-		});
-	sessionStorage.removeItem("url")
-	}
+		}
+	});
 }
-})
 
 /*
 
