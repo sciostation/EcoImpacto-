@@ -30,7 +30,7 @@ $(document).ready( function(){
 
 	if (!sessionStorage.getItem("article") == null) {
 		
-		console.log(JSON.parse(sessionStorage.getItem("article")), sessionStorage.getItem("article"))
+		console.log(sessionStorage.getItem("article"))
 		var data = sessionStorage.getItem("article")
 		newArticle = $('#article').html(data);
 		$('#article').replaceWith(newArticle);
