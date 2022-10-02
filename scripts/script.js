@@ -28,7 +28,7 @@ $(document).ready( function(){
 	});
 
 
-	if (!sessionStorage.getItem("article") == null) {
+	if (sessionStorage.getItem("article") != null) {
 		
 		console.log(sessionStorage.getItem("article"))
 		var data = sessionStorage.getItem("article")
