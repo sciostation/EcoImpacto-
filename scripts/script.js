@@ -94,7 +94,10 @@ function addCss() {
 	}
 }
 
-function load(url) {
+window.addEventListener('DOMContentLoaded', (event) => {
+	if (!sessionStorage.getItem("url") == null) {
+
+		var url = sessionStorage.getItem("url")
 	$.ajax({
 		url: url, 
 		method: 'GET',
@@ -112,10 +115,11 @@ function load(url) {
 			}
 		});
 	sessionStorage.removeItem("url")
-}
+	}
+})
 
 $(".articles").on("click", function() {
-	sessionStorage.setItem("url", url);
+	sessionStorage.setItem("url", url)
 })
 
 function checkPendingArticles() {
