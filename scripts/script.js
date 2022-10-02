@@ -115,7 +115,7 @@ function load(url) {
 		success: function(data) {
 			if (window.location.pathname.includes("documentation.html") || window.location.pathname.includes("about.html")) {
 				sessionStorage.setItem("article", data);
-				console.log("SET", data, JSON.parse(sessionStorage.article))
+				alert("SET", data, JSON.parse(sessionStorage.article))
 				window.location.href = "https://bianca-lm.github.io/coolDown/";
 			}
 			else {
