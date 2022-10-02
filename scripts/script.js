@@ -14,8 +14,8 @@ $(document).ready( function(){
 				else {
 					var url = String(obj.url);
 					var label = obj.label;
-					var listItem = "<li><button class='articles'>" + label + "</button></li>";
-					var linkItem = "<a class='dropdown-item'>" + label + "</a>"
+					var listItem = "<li><button class='articles' onclick='load(\"" + url + "\")'>" + label + "</button></li>";
+					var linkItem = "<a class='dropdown-item' onclick='load(\"" + url + "\")'>" + label + "</a>"
 
 					$('#articleslist').append(listItem);
 					$('#dropdownMenu').append(linkItem);
@@ -94,11 +94,21 @@ function addCss() {
 	}
 }
 
+function load(url) {
+
+	sessionStorage.setItem("url", url);
+	if (!window.location.pathname.includes("index.html")) {
+		top.location.href = "..coolDown/index.html";
+	}
+	alert("DONE");
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
 	if (window.location.pathname.includes("index.html")) {
 	if (!sessionStorage.getItem("url") == null) {
 
-		var url = sessionStorage.getItem("url")
+		var url = sessionStorage.getItem("url");
+		
 	$.ajax({
 		url: url, 
 		method: 'GET',
@@ -120,6 +130,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 }
 })
 
+/*
+
 $(".articles").on("click", function() {
 	sessionStorage.setItem("url", url);
 	if (!window.location.pathname.includes("index.html")) {
@@ -127,13 +139,14 @@ $(".articles").on("click", function() {
 	}
 })
 
-/*
+
 function checkPendingArticles() {
 	if (!sessionStorage.getItem("url") == null) {
 		load(url);
 		alert("LOADED")
 	}
-}*/
+}
+*/
 
 function addInfo() {
 	var article = document.getElementById("article");
