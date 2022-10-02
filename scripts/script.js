@@ -30,11 +30,9 @@ $(document).ready( function(){
 
 	if (sessionStorage.getItem("article") != null) {
 		
-		console.log(sessionStorage.getItem("article"))
 		var data = sessionStorage.getItem("article")
 		newArticle = $('#article').html(data);
 		$('#article').replaceWith(newArticle);
-		console.log(newArticle)
 		addInfo()
 		addFromLocalStorage()
 		addMetadata()
@@ -116,13 +114,11 @@ function load(url) {
 		success: function(data) {
 			if (window.location.pathname.includes("documentation.html") || window.location.pathname.includes("about.html")) {
 				sessionStorage.setItem("article", data);
-				alert("SET", data, sessionStorage.article)
 				window.location.href = "https://bianca-lm.github.io/coolDown/";
 			}
 			else {
 				newArticle = $('#article').html(data);
 				$('#article').replaceWith(newArticle);
-				console.log(newArticle)
 				addInfo()
 				addFromLocalStorage()
 				addMetadata()
@@ -133,24 +129,6 @@ function load(url) {
 		}
 	});
 }
-
-/*
-
-$(".articles").on("click", function() {
-	sessionStorage.setItem("url", url);
-	if (!window.location.pathname.includes("index.html")) {
-		top.location.href = "..coolDown/index.html"
-	}
-})
-
-
-function checkPendingArticles() {
-	if (!sessionStorage.getItem("url") == null) {
-		load(url);
-		alert("LOADED")
-	}
-}
-*/
 
 function addInfo() {
 	var article = document.getElementById("article");
@@ -223,13 +201,8 @@ function metadataLists(type, occurrence) {
 function addKeyToLocalStorage(text, count) {
 
 	var emptyObject = new Object()
-	/*
-	var data = new Object({"count": count, "occurrences": emptyObject});
-	localStorage.setItem(text, JSON.stringify(data));
-	*/
 
 	localStorage.setItem(text, JSON.stringify(emptyObject))
-	//console.log("KEY, VALUE", text, emptyObject)
 
 }
 
@@ -247,20 +220,15 @@ function addFromLocalStorage() {
 		}
 		for (let key in object) {
 			var singleMatch = object[key]
-
-			//console.log("OBJECT", key, object[key])
 			matches.push(singleMatch)
 		}
 	}
 
 	var box = document.getElementById("keywords");
 	box.innerHTML = "";
-	//console.log("FROML LS", matches, uniqueMatches)
-	//addToKeywordsBox(matches, uniqueMatches)
 
 	for (var i = 0; i < uniqueMatches.length; i++) {
 		var list = uniqueMatches[i].split(/(?=[ .:;?!~,-`"&|()<>{}\[\]\r\n\s/\\]+)/);
-		console.log("LIST", list)
 		findMatches(list)
 	}
 }
@@ -306,17 +274,12 @@ function changeStyleSheet(element) {
 
 function addNewMetadata() {
     var input = document.getElementById("userInput").value;
-    console.log("input", input)
     if (input != "") {
 		var inputList = input.split(/(?=[ .:;?!~,-`"&|()<>{}\[\]\r\n\s/\\]+)/);
-
-	    console.log("inputList", inputList)
 		findMatches(inputList);
 		showOccurrences();
 	}
 }
-
-	//var articleText = articleContent.replace(/(<([^>]+)>)/gi, "").toString();
 
 function findMatches(inputList) {
 	var article = document.getElementById("article");
@@ -340,7 +303,6 @@ function findMatches(inputList) {
 				let substring = oneWord.substring(0, oneWord.length-1);
 				var desinences = "(...es|ed|d|ing|ied|ies|s)";
 				stringToMatch = stringToMatch + substring + "{0,2}" + desinences + "?" ;
-				console.log("A", stringToMatch)
 			}
 
 			else if (/.ing|.ied|.ies/.test(oneWord.substring(oneWord-3))) {
@@ -348,58 +310,43 @@ function findMatches(inputList) {
 				let substring = oneWord.substring(0, oneWord.length-3);
 				var desinences = "(...es|ed|d|ing|ied|ies|s|e|y|\b)";
 				stringToMatch = stringToMatch + substring + "?" + desinences;
-				console.log("B", stringToMatch)
 			}
 
 			else {
 				var desinences = "(...es|ed|d|ing|ied|ies|s)";
 				stringToMatch = stringToMatch + oneWord + "?" + desinences + "?" ;
-				console.log("C", stringToMatch)
 			}
 		}
-		console.log("String to match", stringToMatch)
 	}
 
 
 	stringToMatch += "\\b";
-	console.log("string to Match", stringToMatch.typeof)
 
 	var flag = "gi";
 	var regex = new RegExp(stringToMatch, flag);
 	for (let i = 0; i < articleChildren.length; i++) {
-		console.log("articleChildren[i]", articleChildren[i])
 		if (articleChildren[i].nodeName != "FIGURE"  && articleChildren[i].nodeName != "#text" && articleChildren[i].nodeName != "#comment") {
 			var textToCheck = articleChildren[i].innerHTML
 			var partMatches = textToCheck.match(regex);
-			//console.log("MATCHES", matches)
 			Array.prototype.push.apply(matches, partMatches)
-			//console.log(partMatches, matches, textToCheck)
 		}
 
 	}
-	//if (matches.length > 0) {
-		var uniqueMatches = [... new Set(matches)];
-	/*}
-	else {
-		var uniqueMatches = new Set(input)
-	}*/
+	
+	var uniqueMatches = [... new Set(matches)];
 	addToKeywordsBox(matches, uniqueMatches)
 }
 
 function addToKeywordsBox(matches, uniqueMatches) {
-	//console.log("2", matches, uniqueMatches)
 	var article = document.getElementById("article");
 	var articleContent = article.innerHTML
 
 	var articleChildren = article.childNodes
 
-	console.log(articleChildren)
-
-    //console.log("A", articleChildren[2].nodeName, articleChildren[5].nodeName == "#text")
 	for (var i = 0; i < uniqueMatches.length; i++) {
 
 		var count = 0
-		console.log("U", uniqueMatches[i])
+	
 		var exactRegex = RegExp("(?<!>)\\b"+uniqueMatches[i]+"\\b", "g");
     	var newString = "<span class=\"added-keywords\" id=\"keyword\">" + uniqueMatches[i] + "</span>";
     		for (let i = 0; i < articleChildren.length; i++) {
@@ -415,7 +362,6 @@ function addToKeywordsBox(matches, uniqueMatches) {
 				}
 			}
 
-		console.log("COUNT", count, uniqueMatches[i])
     	addMetadataToBox(uniqueMatches[i], count);
 	}
 	if (matches.length != 0) {
@@ -423,10 +369,8 @@ function addToKeywordsBox(matches, uniqueMatches) {
 		if (contentBoxes != null) {
 			for (var i=0; i<contentBoxes.length; i++) {
 				var keywordLink = contentBoxes[i].getElementsByTagName("a")
-				console.log("KEYWORD LINK", keywordLink)
 				if (keywordLink.length == 0 && count != 0) {
 					var number = JSON.parse(localStorage.getItem("n"))
-					console.log("NUMBER", typeof number)
 					if (number == null) {
 						number = 0
 					}
@@ -437,7 +381,6 @@ function addToKeywordsBox(matches, uniqueMatches) {
 							d.removeAttribute("id");
 							var id = "keyword-"+number;
 							d.setAttribute("id", id);
-							console.log("QUI", "D", d, "MATCH", matches[i])
 							addSingleOccurrences(matches[i], id);
 						}
 					}
@@ -458,17 +401,12 @@ function addMetadataToBox(text, count){
 	var children = box.getElementsByClassName("label")
 
 	var keyId = text.replace(/\s/g, "")
-	console.log(keyId)
-	console.log("BOX", box, box.getElementsByClassName("label"))	
 	var idx = 0
 	if (children != null) {
 	for (var i=0; i<children.length; i++) {
-		console.log("CHILDREN", children[i], children[i].getAttribute("id"))
 		var checkId = children[i].getAttribute("id")
 		checkId = checkId.replace(/\s/g, "")
-		console.log("CHECKID", checkId)
 		if (keyId+"-key" == checkId) {
-			console.log("KEYYAAAAAY")
 			idx += 1
 		}
 	}
@@ -496,21 +434,16 @@ function addSingleOccurrences(singleMatch, id) {
 	if (localStorage.getItem(singleMatch) != null) {
 		var key = localStorage.getItem(singleMatch);
 		key = JSON.parse(key);
-		(console.log("LOOK HERE", key, key[id], singleMatch))
 
 		if (!(id in key)) {
 			key[id] = singleMatch
-			console.log("KEY", key)
 			localStorage.setItem(singleMatch, JSON.stringify(key))
 		}
 	}
 
 
 	var labelBoxes = document.getElementsByClassName("label");
-	console.log("LABEL", labelBoxes)
 	for (var i = 0; i < labelBoxes.length; i++) {
-
-		console.log(labelBoxes[i])
 
 		var innerText = labelBoxes[i].innerText;
 		var justTheKeyword = innerText.replace(/\s\d*$/g, "");
@@ -522,7 +455,6 @@ function addSingleOccurrences(singleMatch, id) {
 			listItem.appendChild(listItemLink);
 			var contentDiv = labelBoxes[i].nextElementSibling;
 			var ul = contentDiv.getElementsByTagName("ol");
-			console.log("UL", ul, listItem, singleMatch)
 			ul[0].appendChild(listItem);
 		}	
 	}
@@ -542,10 +474,8 @@ function clearAll() {
 	var articleContent = article.innerHTML
 
 	var keywords = document.getElementsByClassName("added-keywords") 
-	console.log(keywords)
 	for (var i = 0; i < keywords.length; i++) {
 		var content = keywords[i].innerHTML
-		console.log("and heeere", keywords[i], keywords[i].outerHTML, keywords[i].innerHTML, content)
 		articleContent = articleContent.replace(keywords[i].outerHTML, content)
 	}
 	article.innerHTML = articleContent;
@@ -553,48 +483,24 @@ function clearAll() {
 
 function removeSpan() {
 	var list = document.getElementsByClassName("articles");
-	console.log(list)
 	for (var i = 0; i < list.length; i++) {
 		var icon = list[i].getElementsByTagName("i");
-		console.log(icon);
 		for (var l = 0; l<icon.length; l++) {
 			icon[l].remove();
 		}
 	}
 
 	var h3Elements = document.getElementsByTagName("h3");
-	console.log(h3Elements)
 	for (var i = 0; i < h3Elements.length; i++) {
 		var newText = "";
 		var span = h3Elements[i].getElementsByTagName("span");
-		console.log("spana", span)
 		for (var l = 0; l < span.length; l++) {
 			var content = span[l].innerText;
 			newText = newText+content;
 		}
 		h3Elements[i].innerHTML = newText;
-		console.log(h3Elements[i])
 	}
 }
-
-/*
-function removeSpan() {
-	var h3Elements = document.getElementsByTagName("h3");
-	for (var i=0; i < h3Elements.length; i++) {
-		var span = h3Elements[i].getElementsByTagName("span");
-		console.log("H3", h3Elements[i].type, h3Elements[i].innerHTML.type)
-		let newText = ""
-		if (span.length > 0) {
-			for (var i=0; i<span.length; i++) {
-				newText = newText+span[i].innerHTML
-				console.log(newText)
-			}
-			h3Elements[i].innerHTML = ""
-		}
-	console.log(h3Elements[i])
-	}
-}
-*/
 
 function increaseFont() { /*add when the stylesheet changes the attribute onclick="increaseFont(this)" to the button of the futurism style*/
 	var h3Elements = document.getElementsByTagName("h3");
@@ -608,8 +514,6 @@ function increaseFont() { /*add when the stylesheet changes the attribute onclic
 					fontSize = fontSize - 5;
 					fontSize = fontSize.toFixed(2)
 				}
-				console.log(fontSize)
-				console.log(text[l].outerHTML)
 				var span = "<span style=\"font-size:"+fontSize+"%\";>"+text[l]+"</span>";
 				newString = newString+span
 			} 
@@ -623,17 +527,14 @@ function increaseFont() { /*add when the stylesheet changes the attribute onclic
 function addIcons() {
 	var list = document.getElementById("articleslist");
 	var buttons = list.getElementsByTagName("button")
-	console.log(buttons) 
 
 	for (var i=0; i<buttons.length; i++) {
 		if (buttons[i].childElementCount === 0) {
 			var icon = document.createElement("i");
 			icon.setAttribute("class", "fas fa-fighter-jet");
 			buttons[i].appendChild(icon)
-			console.log("BUTTON", buttons[i])
 		}
 	}
-	console.log(icon)
 }
 
 $(document).on("click", "#hiddenMetadataBox", function() {
