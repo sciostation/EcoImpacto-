@@ -14,8 +14,6 @@ body {
 	font-weight: bold;
 }
 
-/*https://www.pixartprinting.co.uk/blog/futurism-book-objects/  */
-
 nav {
 	background: linear-gradient(to right, #e69737 62.5%, #384f49 38.5%);
 	margin-bottom: 3%;
@@ -274,11 +272,9 @@ input[type=checkbox i]:checked {
 }
 
 #article h1:not(#bigger), #article p, figcaption {
-	/* background-image: url("../images/Triangle.png"); the path is relative to the CSS file*/
 	background-color: transparent;
 	color: white;
 	mix-blend-mode: difference;
-	/*mix-blend-mode: difference;*/
 	z-index: 1;
 	margin: 2%;
 }
