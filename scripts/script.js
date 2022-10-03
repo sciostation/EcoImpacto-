@@ -547,71 +547,14 @@ $(document).on("click", "#hiddenMetadataBox", function() {
 	}
 })
 
-//SECOND HALF OF XX CENTURY
-
 /*
-function addSpanInitialLetter() {
-	var article = document.getElementById("article");
-	var paragraphs = article.getElementsByTagName("p");
-	var initialLetter = paragraphs[0].innerHTML
-	paragraphs[0].innerHTML = initialLetter.replace(initialLetter[0], "<span id='initialLetter'>"+initialLetter[0]+"</span>")
-}
-*/
-/*
-function showOccurrences(node) {
-	console.log(node.innerHTML)
-	if (node.innerHTML.includes("People")){
-		var people = document.getElementsByClassName("person");
-		for (var i=0; i < people.length; i++) {
-			people[i].setAttribute("style", "background-color:#84e184;");
-		}
-	}
-	if (node.innerHTML.includes("Organizations")){
-		var organizations = document.getElementsByClassName("organization");
-		for (var i=0; i < organizations.length; i++) {
-			organizations[i].setAttribute("style", "background-color:#80dfff;");
-		}
-	}
-	if (node.innerHTML.includes("Places")){
-		var places = document.getElementsByClassName("place");
-		for (var i=0; i < places.length; i++) {
-			places[i].setAttribute("style", "background-color:#66a3ff;");
-		}
-	}
-	if (node.innerHTML.includes("References")){
-		var references = document.getElementsByClassName("reference");
-		for (var i=0; i < references.length; i++) {
-			references[i].setAttribute("style", "background-color:#8080ff;");
-		}
-	}
-}
-*/
-/*
-function changeMetadata(element) {
-	alert("click")
-	var valueName = element.getAttribute("value");
-	var submitElement = document.getElementById("userInput");
-	submitElement.removeAttribute("value")
-	submitElement.setAttribute("value", "Insert"+" "+valueName)
-}
 
 don't match string inside tags; add all the other metadata (people, places, quotes - with people who quote)
 
 tags: p, span, h1, h2, h3, q, a, li
 
-
-$.ajax({
-                    url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extract&titles='+searchTerm+'&redirects=true',
-                    
-to go to the wikipedia page of people when possible (put the alt on the hovering on the link that says go to the wikipedia page)
-differentiate quotes "" from speeches «»
-
-var string = "\\b" + input + "{0,1}(...es|ed|d)?\\b|" + input + "{0,2}ing\\b|" + input + "s?\\b"
-
 it does not remove properly the keywords cause it end up in mixing them with the other span. Now I remove them but
 it remains the </span> and the text in between the two span.
-
-Different problems with the triangle (It must be shown only with the Intro page, however or it is shown also in the articles or it isn't but the articles have a bad pagination)
 
 It does not remove the span once added, so it would be better to do the changing size trick with the stylesheet.
 
