@@ -27,7 +27,7 @@ nav a, #dropdownMenuButton {
 }
 
 nav a:hover, #dropdownMenuButton:hover {
-	background-color: /*#FCBA12*/#FB9902;
+	background-color: #FB9902;
 	color: black;
 }
 
@@ -332,6 +332,37 @@ footer {
 }
 
 @media only screen and (max-width: 992px) {
+	#firstsection {
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+
+	aside {
+		order: 1;
+		left:0;
+		width: 100%;
+	}
+
+	#articleContainer {
+		order: 2;
+	}
+
+	#article {
+		width: 100%;
+		left: 25%;
+	}
+
+	#secondsection {
+		display: inline-block;
+		width: 100%;
+	}
+
+	#hiddenMetadataBox {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 480px) {
 	#firstsection {
 		flex-direction: column;
 		flex-wrap: wrap;
