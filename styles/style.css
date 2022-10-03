@@ -263,6 +263,10 @@ figcaption {
 	max-width: 40%;
 }
 
+#articleslist button:hover {
+	background-color: #FB9902;
+}
+
 .fab-container{
 	display: flex;
 	flex-direction: column;
