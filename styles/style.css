@@ -259,8 +259,9 @@ figcaption {
 }
 
 #articleslist button {
-	padding-left: 5%;
-	max-width: 40%;
+	padding-left: 3%;
+	padding-right: 3%;
+	width: 40%;
 }
 
 #articleslist button:hover {
