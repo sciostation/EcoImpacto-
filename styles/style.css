@@ -370,7 +370,8 @@ footer {
 
 @media screen and (max-width: 480px), (orientation:portrait) {
 	body {
-		font-size: 12pt;
+		height: 100vh;
+		font-size: 16pt;
 	}
 
 	#article {
@@ -385,10 +386,6 @@ footer {
 
 	.fab-button i {
 		font-size: 2em;
-	}
-
-	footer {
-		bottom:0;
 	}
 
 	#articleslist button {
