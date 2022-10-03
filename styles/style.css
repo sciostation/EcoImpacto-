@@ -361,3 +361,13 @@ footer {
 		display: block;
 	}
 }
+
+@media only screen and (max-width: 992px) {
+	body {
+		height: 100vh;
+	}
+
+	#firstsection {
+		height: 70%vh;
+	}
+}
