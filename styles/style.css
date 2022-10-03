@@ -361,9 +361,3 @@ footer {
 		display: block;
 	}
 }
-
-@media only screen and (max-width: 480px) {
-	#firstsection {
-		padding-bottom: 75%;
-	}
-}
