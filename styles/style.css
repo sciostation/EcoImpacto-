@@ -360,13 +360,11 @@ footer {
 
 @media screen and (max-width: 480px) and (orientation:portrait) {
 	body {
-		height: 100vh;
-		font-size: 16px;
+		font-size: 12pt;
 	}
 
 	#article {
 		column-count: 1;
-		height: 70vh;
 	}
 
 	.fab-button{
