@@ -104,8 +104,8 @@ aside #cleanAll {
 	color: black;
 	cursor: pointer;
 	box-decoration-break: none;
-	width: 96.5%;
 	margin:auto;
+	overflow: hidden;
 }
 
 #hiddenMetadataBox:focus {
