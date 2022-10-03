@@ -331,7 +331,14 @@ footer {
 	color: #F7E9D4;
 }
 
-@media only screen and (max-width: 992px) {
+@media (orientation:portrait) {
+	footer {
+		bottom:0;
+		position:absolute;
+	}
+}
+
+@media screen and (max-width: 992px) {
 	#firstsection {
 		flex-direction: column;
 		flex-wrap: wrap;
