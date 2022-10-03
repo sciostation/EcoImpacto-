@@ -316,10 +316,6 @@ figcaption {
 	content: "1920";
 }
 
-.fab-container #year1890:hover::after {
-	content: "1890";
-}
-
 footer {
 	width: 100%;
 	text-align: center;
@@ -362,7 +358,7 @@ footer {
 	}
 }
 
-@media screen and (max-width: 480px), (orientation:portrait) {
+@media screen and (max-width: 480px) and (orientation:portrait) {
 	body {
 		height: 100vh;
 		font-size: 16px;
@@ -370,10 +366,19 @@ footer {
 
 	#article {
 		column-count: 1;
+		height: 70vh;
 	}
 
 	.fab-button{
 		width: 6em;
 		height: 6em;
+	}
+
+	.fab-button i {
+		font-size: 2em;
+	}
+
+	footer {
+		bottom:0;
 	}
 }
