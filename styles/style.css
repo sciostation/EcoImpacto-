@@ -375,6 +375,7 @@ footer {
 
 	#article {
 		column-count: 1;
+		min-height: 70vh;
 	}
 
 	.fab-button{
