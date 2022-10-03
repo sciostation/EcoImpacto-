@@ -184,10 +184,8 @@ function metadataLists(type, occurrence) {
 	var ul = div.getElementsByTagName("ul")[0]
 	ul.innerHTML = ""
 	var allOccurrences = document.getElementsByClassName(occurrence)
-	//allUniqueOccurrences = [...new Set(allOccurrences)]
+
 	for (var i = 0; i < allOccurrences.length; i++) {
-		//var ul = document.createElement("ul")
-		//people.appendChild(ul)
 		var li = document.createElement("li")
 		var link = document.createElement("a")
 		link.setAttribute("href", "#"+type+"-"+i.toString())
@@ -292,7 +290,7 @@ function findMatches(inputList) {
 	var stringToMatch = "\\b";
 
 	for (var i = 0; i < inputList.length; i++) {
-		var oneWord = inputList[i] // do the iteration to assign all the desinences to each element and add the string to a general string that contains the entaire regex 
+		var oneWord = inputList[i] 
 		if (punctuation.test(oneWord)) {
 			stringToMatch = stringToMatch + oneWord + "?";
 		}
@@ -411,7 +409,7 @@ function addMetadataToBox(text, count){
 		}
 	}
 }
-	if (idx == 0) { // it means that one of the label is the text we are searching
+	if (idx == 0) { 
 		var label = document.createElement("div");
 		label.setAttribute("class", "label");
 		label.setAttribute("id", keyId+"-key");
@@ -502,7 +500,7 @@ function removeSpan() {
 	}
 }
 
-function increaseFont() { /*add when the stylesheet changes the attribute onclick="increaseFont(this)" to the button of the futurism style*/
+function increaseFont() { 
 	var h3Elements = document.getElementsByTagName("h3");
 	for (var i=0; i < h3Elements.length; i++) {
 		var text = h3Elements[i].innerHTML;
