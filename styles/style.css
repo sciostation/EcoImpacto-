@@ -391,4 +391,8 @@ footer {
 	#hiddenMetadataBox {
 		display: block;
 	}
+
+	footer {
+		bottom: 0;
+	}
 }
