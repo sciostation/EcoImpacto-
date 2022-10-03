@@ -411,3 +411,19 @@ footer {
 		display: block;
 	}
 }
+
+@media screen and (max-width: 480px), (orientation:portrait) {
+	body {
+		font-size: 16pt;
+	}
+
+	.fab-button{
+		width: 12vh;
+		height: 12vh;
+	}
+
+	.fab-button i {
+		font-size: 2em;
+	}
+
+}
