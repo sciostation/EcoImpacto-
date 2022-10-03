@@ -368,7 +368,7 @@ footer {
 	}
 }
 
-@media screen and (max-width: 480px) and (orientation:portrait) {
+@media screen and (max-width: 480px), (orientation:portrait) {
 	body {
 		font-size: 12pt;
 	}
