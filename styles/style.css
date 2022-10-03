@@ -372,6 +372,11 @@ footer {
 		column-count: 1;
 	}
 
+	.fab-button{
+		width: 6em;
+		height: 6em;
+	}
+
 	#firstsection {
 		height: 70%vh;
 	}
