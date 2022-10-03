@@ -258,6 +258,11 @@ figcaption {
 	display: none;
 }
 
+#articleslist button {
+	padding-left: 5%;
+	max-width: 40%;
+}
+
 .fab-container{
 	display: flex;
 	flex-direction: column;
@@ -378,5 +383,9 @@ footer {
 
 	footer {
 		bottom:0;
+	}
+
+	#articleslist button {
+		max-width: 100%;
 	}
 }
