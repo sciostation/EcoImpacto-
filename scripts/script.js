@@ -263,10 +263,10 @@ function changeStyleSheet(element) {
 		removeSpan();
 		sessionStorage.setItem("theme", "styles/style.css");
  	}
- 	if (nameOfTheStyle == "year1920") {
-		d.setAttribute("href", "styles/style_1920.css");
+ 	if (nameOfTheStyle == "year1910") {
+		d.setAttribute("href", "styles/style_1910.css");
 		increaseFont();
-		sessionStorage.setItem("theme", "styles/style_1920.css")
+		sessionStorage.setItem("theme", "styles/style_1910.css")
  	}
 }
 
