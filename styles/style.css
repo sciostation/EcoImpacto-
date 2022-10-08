@@ -322,8 +322,8 @@ figcaption {
 	content: "2022";
 }
 
-.fab-container #year1920:hover::after {
-	content: "1920";
+.fab-container #year1910:hover::after {
+	content: "1910s";
 }
 
 footer {
