@@ -270,6 +270,13 @@ function changeStyleSheet(element) {
  	}
 }
 
+function eventListener(event) {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		addNewMetadata();
+	}
+}
+
 function addNewMetadata() {
     var input = document.getElementById("userInput").value;
     if (input != "") {
