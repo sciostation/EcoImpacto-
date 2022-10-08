@@ -502,6 +502,7 @@ function removeSpan() {
 	}
 }
 
+//Code for the 1910s style
 function increaseFont() { 
 	var h3Elements = document.getElementsByTagName("h3");
 	for (var i=0; i < h3Elements.length; i++) {
@@ -537,6 +538,7 @@ function addIcons() {
 	}
 }
 
+//Code for small screens
 $(document).on("click", "#hiddenMetadataBox", function() {
 	var box = document.getElementsByTagName("aside");
 	if ($(box[0]).hasClass("collapse")) {
