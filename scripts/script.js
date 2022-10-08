@@ -557,5 +557,3 @@ it remains the </span> and the text in between the two span.
 It does not remove the span once added, so it would be better to do the changing size trick with the stylesheet.
 
 */
-
-$config['system.core']['block_interest_cohort'] = FALSE;
