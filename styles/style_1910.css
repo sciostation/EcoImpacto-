@@ -165,6 +165,15 @@ aside #cleanAll {
 	text-decoration: underline;
 }
 
+#keywords .label span{
+	background-color: #384f49;
+	color: #eee;
+}
+
+#keywords .label:hover {
+	cursor: pointer;
+}
+
 .keywords-background {
 	background-color: #e69737;
 }
