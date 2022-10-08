@@ -92,6 +92,7 @@ $(document).ready( function(){
 	});
 })
 
+//keep the same CSS while changing html page
 function addCss() {
 	var css = document.getElementById("CSS");
 	if (sessionStorage.getItem("theme")==null) {
@@ -551,16 +552,3 @@ $(document).on("click", "#hiddenMetadataBox", function() {
 		$(box[0]).addClass("collapse");
 	}
 })
-
-/*
-
-don't match string inside tags; add all the other metadata (people, places, quotes - with people who quote)
-
-tags: p, span, h1, h2, h3, q, a, li
-
-it does not remove properly the keywords cause it end up in mixing them with the other span. Now I remove them but
-it remains the </span> and the text in between the two span.
-
-It does not remove the span once added, so it would be better to do the changing size trick with the stylesheet.
-
-*/
