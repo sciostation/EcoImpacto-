@@ -27,7 +27,7 @@ $(document).ready( function(){
 		}
 	});
 
-
+	//see if there are articles waiting to be loaded
 	if (sessionStorage.getItem("article") != null) {
 		
 		var data = sessionStorage.getItem("article")
