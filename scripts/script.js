@@ -286,7 +286,6 @@ function addNewMetadata() {
 
 function findMatches(inputList) {
 	var article = document.getElementById("article");
-	var articleContent = article.innerHTML;
 	var articleChildren = article.childNodes
 
 	var matches = new Array()
@@ -342,8 +341,6 @@ function findMatches(inputList) {
 
 function addToKeywordsBox(matches, uniqueMatches) {
 	var article = document.getElementById("article");
-	var articleContent = article.innerHTML
-
 	var articleChildren = article.childNodes
 
 	for (var i = 0; i < uniqueMatches.length; i++) {
