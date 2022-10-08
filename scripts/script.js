@@ -197,12 +197,9 @@ function metadataLists(type, occurrence) {
 	}
 }
 
-function addKeyToLocalStorage(text, count) {
-
+function addKeyToLocalStorage(text) {
 	var emptyObject = new Object()
-
 	localStorage.setItem(text, JSON.stringify(emptyObject))
-
 }
 
 function addFromLocalStorage() {
