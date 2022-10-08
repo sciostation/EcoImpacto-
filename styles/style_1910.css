@@ -103,9 +103,6 @@ aside #cleanAll {
 	background-color: #e69737;
 	color: black;
 	cursor: pointer;
-	box-decoration-break: none;
-	margin:auto;
-	overflow: hidden;
 }
 
 #hiddenMetadataBox:focus {
