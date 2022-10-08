@@ -394,7 +394,7 @@ function addToKeywordsBox(matches, uniqueMatches) {
 
 function addMetadataToBox(text, count){
 	if (localStorage.getItem(text) == null) {
-		addKeyToLocalStorage(text, count)
+		addKeyToLocalStorage(text)
 	}
 
 	var box = document.getElementById("keywords");
