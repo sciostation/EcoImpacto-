@@ -202,8 +202,8 @@ function addKeyToLocalStorage(text) {
 	localStorage.setItem(text, JSON.stringify(emptyObject))
 }
 
-function addFromLocalStorage() {
 
+function addFromLocalStorage() {
 	var matches = new Array() 
 	var uniqueMatches = new Array
 
