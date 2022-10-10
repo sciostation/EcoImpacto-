@@ -300,6 +300,10 @@ q {
 	text-transform: uppercase;
 }
 
+img {
+	filter: blur(1px) contrast(80%) grayscale(100%) saturate(0%) sepia(50%);
+}
+
 img, figcaption {
 	width: 80%;
 	display: block;
