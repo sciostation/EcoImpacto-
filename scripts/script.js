@@ -15,7 +15,7 @@ $(document).ready( function(){
 					var url = String(obj.url);
 					var label = obj.label;
 					var listItem = "<li><button class='articles' onclick='load(\"" + url + "\")'>" + label + "</button></li>";
-					var linkItem = "<a class='dropdown-item' onclick='load(\"" + url + "\")'>" + label + "</a>"
+					var linkItem = "<a class='dropdown-item' onclick='load(\"" + url + "\")'>" + label + "</a>";
 
 					$('#articleslist').append(listItem);
 					$('#dropdownMenu').append(linkItem);
@@ -27,71 +27,72 @@ $(document).ready( function(){
 		}
 	});
 
-
+	//see if there are articles waiting to be loaded
 	if (sessionStorage.getItem("article") != null) {
 		
-		var data = sessionStorage.getItem("article")
+		var data = sessionStorage.getItem("article");
 		newArticle = $('#article').html(data);
 		$('#article').replaceWith(newArticle);
-		addInfo()
-		addFromLocalStorage()
-		addMetadata()
-		sessionStorage.removeItem("article")
+		addInfo();
+		addFromLocalStorage();
+		addMetadata();
+		sessionStorage.removeItem("article");
 	}
 
 	$('#show-keywords').click(function() {
 		if (this.checked) {
-			$('span.added-keywords').addClass('keywords-background')
+			$('span.added-keywords').addClass('keywords-background');
 		}
 		else {
-			$('span.added-keywords').removeClass('keywords-background')
+			$('span.added-keywords').removeClass('keywords-background');
 		}
 	});
 
 	$('#show-people').click(function() {
 		if (this.checked) {
-			$('span.person').addClass('people-background')
+			$('span.person').addClass('people-background');
 		}
 		else {
-			$('span.person').removeClass('people-background')
+			$('span.person').removeClass('people-background');
 		}
 	});
 	
 	$('#show-organizations').click(function() {
 		if (this.checked) {
-			$('span.organization').addClass('organizations-background')
+			$('span.organization').addClass('organizations-background');
 		}
 		else {
-			$('span.organization').removeClass('organizations-background')
+			$('span.organization').removeClass('organizations-background');
 		}
 	});
 	
 	$('#show-places').click(function() {
 		if (this.checked) {
-			$('span.place').addClass('places-background')
+			$('span.place').addClass('places-background');
 		}
 		else {
-			$('span.place').removeClass('places-background')
+			$('span.place').removeClass('places-background');
 		}
 	});
 	$('#show-events').click(function() {
 		if (this.checked) {
-			$('span.event').addClass('events-background')
+			$('span.event').addClass('events-background');
 		}
 		else {
-			$('span.event').removeClass('events-background')
+			$('span.event').removeClass('events-background');
 		}
 	});
 	$('#show-references').click(function() {
 		if (this.checked) {
-			$('span.reference').addClass('references-background')
+			$('span.reference').addClass('references-background');
 		}
 		else {
-			$('span.reference').removeClass('references-background')
+			$('span.reference').removeClass('references-background');
 		}
 	});
 })
 
+//keep the same CSS while changing html page
 function addCss() {
 	var css = document.getElementById("CSS");
 	if (sessionStorage.getItem("theme")==null) {
@@ -119,9 +120,9 @@ function load(url) {
 			else {
 				newArticle = $('#article').html(data);
 				$('#article').replaceWith(newArticle);
-				addInfo()
-				addFromLocalStorage()
-				addMetadata()
+				addInfo();
+				addFromLocalStorage();
+				addMetadata();
 			}
 		},
 		error: function(data) {
@@ -139,9 +140,10 @@ function addInfo() {
 	var title = article.getElementsByTagName("title");
 	for (var i=0; i < title.length; i++) {
 		var titleLi = document.createElement("li");
+		titleLi.setAttribute("id", "title");
 		titleLi.innerText = title[i].innerHTML;
 		ul.appendChild(titleLi);
-		article.removeChild(title[i])
+		article.removeChild(title[i]);
 	}
 
 	var author = article.getElementsByClassName("author");
@@ -172,64 +174,95 @@ function addInfo() {
 }
 
 function addMetadata() {
-	metadataLists("people", "person")
-	metadataLists("organizations", "organization")
-	metadataLists("places", "place")
-	metadataLists("references", "reference")
-	metadataLists("events", "event")
+	metadataLists("people", "person");
+	metadataLists("organizations", "organization");
+	metadataLists("places", "place");
+	metadataLists("references", "reference");
+	metadataLists("events", "event");
 }
 
 function metadataLists(type, occurrence) {
-	var div = document.getElementById(type)
-	var ul = div.getElementsByTagName("ul")[0]
-	ul.innerHTML = ""
-	var allOccurrences = document.getElementsByClassName(occurrence)
+	var div = document.getElementById(type);
+	var ul = div.getElementsByTagName("ul")[0];
+	ul.innerHTML = "";
+	var allOccurrences = document.getElementsByClassName(occurrence);
 
 	for (var i = 0; i < allOccurrences.length; i++) {
-		var li = document.createElement("li")
-		var link = document.createElement("a")
-		link.setAttribute("href", "#"+type+"-"+i.toString())
-		link.innerHTML = allOccurrences[i].innerHTML
-		li.appendChild(link)
-		allOccurrences[i].setAttribute("id", type+"-"+i.toString())
-		ul.appendChild(li)
+		var li = document.createElement("li");
+		var link = document.createElement("a");
+		link.setAttribute("href", "#"+type+"-"+i.toString());
+		link.innerHTML = allOccurrences[i].innerHTML;
+		li.appendChild(link);
+		allOccurrences[i].setAttribute("id", type+"-"+i.toString());
+		ul.appendChild(li);
 	}
 }
 
-function addKeyToLocalStorage(text, count) {
+function addNewKeyToLocalStorage(text, partialCount) {
+	var title = document.getElementById("title");
+	console.log("TITLE", title, JSON.stringify(title.innerHTML), partialCount.typeof);
 
-	var emptyObject = new Object()
-
-	localStorage.setItem(text, JSON.stringify(emptyObject))
-
+	if (localStorage.getItem(JSON.stringify(title.innerHTML)) === null) {
+		var emptyObject = new Object();
+		emptyObject[text] = {count: partialCount};
+		emptyObject["totalCount"] = partialCount;
+		localStorage.setItem(JSON.stringify(title.innerHTML), JSON.stringify(emptyObject));
+	}
+	
+	else {
+		var titleContent = JSON.parse(localStorage.getItem(JSON.stringify(title.innerHTML)));
+		if (titleContent[text] == null || titleContent[text] == undefined) {
+			titleContent[text] = {count: partialCount};
+			titleContent["totalCount"] += partialCount;
+			console.log("TITLE CONTENT", titleContent["keywords"]);
+			localStorage.setItem(JSON.stringify(title.innerHTML), JSON.stringify(titleContent));
+		}
+	console.log("LOCAL STORAGE", localStorage)
+	}
 }
 
 function addFromLocalStorage() {
+	console.log("fine till here")
+	var title = document.getElementById("title");
 
-	var matches = new Array() 
-	var uniqueMatches = new Array
+	console.log("and here")
+	if (title != null) {
+		var lS = JSON.parse(localStorage.getItem(JSON.stringify(title.innerHTML)));
+		console.log("RETRIEVE STORAGE", lS)
+		var box = document.getElementById("keywords");
+		box.innerHTML = "";
 
-	for (var i=0; i < localStorage.length; i++) {
-		var key = localStorage.key(i);
-		var object = localStorage.getItem(key);
-		object = JSON.parse(object)
-		if (key != "n") {
-			uniqueMatches.push(key)
+		if (lS != null || lS != undefined) {
+		
+			console.log("also arrived here")
+			var keys = Object.keys(lS);
+			console.log("KEYS", keys);
+			var idx = 0;
+			for (var i = 0; i < keys.length; i++) {
+				console.log("KEYYY", keys[i])
+				var keyword = keys[i];
+				if (keyword == "totalCount") {
+					console.log("FOUND")
+					continue
+				}
+				console.log(keyword)
+				addMetadataToBox(keyword);
+				matchInText(keyword);
+				count = lS[keyword].count;
+				console.log(count)
+
+				for (var l=0; l < count; l++) {
+					console.log("we are doing it", l);
+					addSingleOccurrences(keyword, idx);
+					idx+=1;
+				}
+			}
+				
+			
 		}
-		for (let key in object) {
-			var singleMatch = object[key]
-			matches.push(singleMatch)
-		}
-	}
-
-	var box = document.getElementById("keywords");
-	box.innerHTML = "";
-
-	for (var i = 0; i < uniqueMatches.length; i++) {
-		var list = uniqueMatches[i].split(/(?=[ .:;?!~,-`"&|()<>{}\[\]\r\n\s/\\]+)/);
-		findMatches(list)
 	}
 }
+
 
 // code for the accordion
 $(document).on("click", ".accordion", function() {
@@ -254,6 +287,7 @@ $(document).on("click", ".label", function() {
 	}
 })
 
+
 function changeStyleSheet(element) {
 	var d = document.getElementById("CSS");
 	d.removeAttribute("href");
@@ -263,17 +297,25 @@ function changeStyleSheet(element) {
 		removeSpan();
 		sessionStorage.setItem("theme", "styles/style.css");
  	}
- 	if (nameOfTheStyle == "year1920") {
-		d.setAttribute("href", "styles/style_1920.css");
+ 	if (nameOfTheStyle == "year1910") {
+		d.setAttribute("href", "styles/style_1910.css");
 		increaseFont();
-		sessionStorage.setItem("theme", "styles/style_1920.css")
+		sessionStorage.setItem("theme", "styles/style_1910.css");
  	}
+}
+
+function eventListener(event) {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		addNewMetadata();
+	}
 }
 
 function addNewMetadata() {
     var input = document.getElementById("userInput").value;
     if (input != "") {
 		var inputList = input.split(/(?=[ .:;?!~,-`"&|()<>{}\[\]\r\n\s/\\]+)/);
+		console.log("INPUT LIST", inputList)
 		findMatches(inputList);
 		showOccurrences();
 	}
@@ -281,16 +323,15 @@ function addNewMetadata() {
 
 function findMatches(inputList) {
 	var article = document.getElementById("article");
-	var articleContent = article.innerHTML;
-	var articleChildren = article.childNodes
+	var articleChildren = article.childNodes;
 
-	var matches = new Array()
+	var matches = new Array();
 
 	var punctuation = /(?=[ .:;?!~,`"&|()<>{}\[\]\r\n/\\]|\s)/;
 	var stringToMatch = "\\b";
 
 	for (var i = 0; i < inputList.length; i++) {
-		var oneWord = inputList[i] 
+		var oneWord = inputList[i];
 		if (punctuation.test(oneWord)) {
 			stringToMatch = stringToMatch + oneWord + "?";
 		}
@@ -319,96 +360,135 @@ function findMatches(inputList) {
 
 
 	stringToMatch += "\\b";
-
+	console.log("STRING TO MATCH", stringToMatch)
 	var flag = "gi";
 	var regex = new RegExp(stringToMatch, flag);
-	for (let i = 0; i < articleChildren.length; i++) {
+	
+	for (var i = 0; i < articleChildren.length; i++) {
 		if (articleChildren[i].nodeName != "FIGURE"  && articleChildren[i].nodeName != "#text" && articleChildren[i].nodeName != "#comment") {
-			var textToCheck = articleChildren[i].innerHTML
-			var partMatches = textToCheck.match(regex);
-			Array.prototype.push.apply(matches, partMatches)
-		}
+
+				var textToCheck = articleChildren[i].innerHTML;
+				textToCheck = textToCheck.replaceAll(/id="[a-zA-Z0-9-\s]*"/g, "");
+				textToCheck = textToCheck.replaceAll(/class="[a-zA-Z0-9-\s]*"/g, "");
+				console.log("text", textToCheck);
+				var partMatches = textToCheck.match(regex);
+			
+				Array.prototype.push.apply(matches, partMatches);
+			}
+			console.log("PARTIAL MATCHES", matches, partMatches)
+		
 
 	}
 	
 	var uniqueMatches = [... new Set(matches)];
-	addToKeywordsBox(matches, uniqueMatches)
+	console.log("UNIQUE MATCHES", matches, uniqueMatches)
+	addToKeywordsBox(matches, uniqueMatches);
 }
 
 function addToKeywordsBox(matches, uniqueMatches) {
-	var article = document.getElementById("article");
-	var articleContent = article.innerHTML
 
-	var articleChildren = article.childNodes
+	var title = document.getElementById("title");
+
+	if (!uniqueMatches.length == 0) {
+		var lS = JSON.parse(localStorage.getItem(JSON.stringify(title.innerHTML)));
+
+		if (lS == null) { 
+			id = 0;
+		}
+		else {
+			id = lS["totalCount"];
+		}
 
 	for (var i = 0; i < uniqueMatches.length; i++) {
+		
+		addMetadataToBox(uniqueMatches[i]);
+		matchInText(uniqueMatches[i]);
 
-		var count = 0
-	
-		var exactRegex = RegExp("(?<!>)\\b"+uniqueMatches[i]+"\\b", "g");
-    	var newString = "<span class=\"added-keywords\" id=\"keyword\">" + uniqueMatches[i] + "</span>";
-    		for (let i = 0; i < articleChildren.length; i++) {
-    			if (articleChildren[i].nodeName != "FIGURE"  && articleChildren[i].nodeName != "#text" && articleChildren[i].nodeName != "#comment") {
-    				var textToCheck = articleChildren[i].innerHTML
-
-    				if (textToCheck.match(exactRegex) != null) {
-    			   	 	var partialCount = textToCheck.match(exactRegex).length;
-    			    	count += partialCount
-
-						articleChildren[i].innerHTML = textToCheck.replaceAll(exactRegex, newString);
-					}
-				}
-			}
-
-    	addMetadataToBox(uniqueMatches[i], count);
+		var regex = new RegExp("-"+uniqueMatches[i]);
+		var count = document.getElementById("numOfOccurrences-"+uniqueMatches[i]).innerHTML.replace(regex, "");
+		console.log("COUNT", uniqueMatches, Number(count));
+		addNewKeyToLocalStorage(uniqueMatches[i], Number(count));
+		
 	}
+
+	
 	if (matches.length != 0) {
-		var contentBoxes = document.getElementsByClassName("content")
+		var box = document.getElementById("keywords");
+		var contentBoxes = box.getElementsByClassName("content");
 		if (contentBoxes != null) {
 			for (var i=0; i<contentBoxes.length; i++) {
-				var keywordLink = contentBoxes[i].getElementsByTagName("a")
+				var keywordLink = contentBoxes[i].getElementsByTagName("a");
 				if (keywordLink.length == 0 && count != 0) {
-					var number = JSON.parse(localStorage.getItem("n"))
-					if (number == null) {
-						number = 0
-					}
-					for (var i = 0; i < matches.length; i++) {
-						number += 1 
-						var d = document.getElementById("keyword");
-						if (d != null) {
-							d.removeAttribute("id");
-							var id = "keyword-"+number;
-							d.setAttribute("id", id);
-							addSingleOccurrences(matches[i], id);
-						}
-					}
 
-					localStorage.setItem("n", JSON.stringify(number))
+					for (var i = 0; i < matches.length; i++) {
+						addSingleOccurrences(matches[i], id);
+					
+						id += 1;
+					}
 				}
 			}
 		}
 	}
+	//addIdsToLocalStorage(count)
+	}
+	else {
+		alert("No matches found");
+	}
 }
 
-function addMetadataToBox(text, count){
-	if (localStorage.getItem(text) == null) {
-		addKeyToLocalStorage(text, count)
+
+function matchInText(text) {
+	var article = document.getElementById("article");
+	var articleChildren = article.childNodes;
+
+	var count = 0;
+	
+	var exactRegex = RegExp("(?<!>)\\b"+text+"\\b", "g");
+	var newString = "<span class=\"added-keywords\" id=\"keyword\">" + text + "</span>";
+		for (let i = 0; i < articleChildren.length; i++) {
+			if (articleChildren[i].nodeName != "FIGURE"  && articleChildren[i].nodeName != "#text" && articleChildren[i].nodeName != "#comment" && articleChildren[i].nodeName != "SPAN") {
+				var textToCheck = articleChildren[i].innerHTML;
+				textToCheck = textToCheck.replaceAll(/id="[a-zA-Z0-9-\s]*"/g, "");
+				textToCheck = textToCheck.replaceAll(/class="[a-zA-Z0-9-\s]*"/g, "");
+				console.log("TEXT TO CHECK", textToCheck);
+				if (textToCheck.match(exactRegex) != null) {
+					var partialCount = textToCheck.match(exactRegex).length;
+					console.log("PARTIAL COUNT", partialCount, textToCheck.match(exactRegex).length);
+					count += partialCount;
+					articleChildren[i].innerHTML = textToCheck.replaceAll(exactRegex, newString);
+					
+				}
+			}
+		}
+	
+		var numberOfOccurrences = document.getElementById("numOfOccurrences-"+text);
+	if (count != 0 || count == 0 && numberOfOccurrences.innerText == "") {
+		numberOfOccurrences.appendChild(document.createTextNode(count));
 	}
+}
 
+function addMetadataToBox(text){
+	
 	var box = document.getElementById("keywords");
-	var children = box.getElementsByClassName("label")
+	var children = box.getElementsByClassName("label");
+	console.log("CHILDREN", children);
+	var keyId = text.replace(/\s/g, "");
+	var idx = 0;
 
-	var keyId = text.replace(/\s/g, "")
-	var idx = 0
+	//check if the label is already present
 	if (children != null) {
-	for (var i=0; i<children.length; i++) {
-		var checkId = children[i].getAttribute("id")
-		checkId = checkId.replace(/\s/g, "")
-		if (keyId+"-key" == checkId) {
-			idx += 1
+		for (var i=0; i<children.length; i++) {
+			var checkId = children[i].getAttribute("id");
+			console.log("CHECK ID", checkId);
+			checkId = checkId.replace(/\s/g, "");
+			if (keyId+"-key" == checkId) {
+				idx += 1;
+			console.log("INDEX", idx)
+			}
 		}
 	}
-}
+
+	//no labels found, create a new label for the keyword
 	if (idx == 0) { 
 		var label = document.createElement("div");
 		label.setAttribute("class", "label");
@@ -416,29 +496,29 @@ function addMetadataToBox(text, count){
 		box.appendChild(label);
 		label.appendChild(document.createTextNode(text+" "));
 		var numberOfOccurrences = document.createElement("span");
-		numberOfOccurrences.appendChild(document.createTextNode(count));
+		numberOfOccurrences.setAttribute("id", "numOfOccurrences-"+keyId);
 		label.appendChild(numberOfOccurrences);
 		var content = document.createElement("div");
 		content.setAttribute("class", "hidden content");
 		box.appendChild(content);
 		var list = document.createElement("ol");
 		content.appendChild(list);
+		console.log("LABEL", label);
 	}
 	
 }
 
 
 function addSingleOccurrences(singleMatch, id) {
-	if (localStorage.getItem(singleMatch) != null) {
-		var key = localStorage.getItem(singleMatch);
-		key = JSON.parse(key);
-
-		if (!(id in key)) {
-			key[id] = singleMatch
-			localStorage.setItem(singleMatch, JSON.stringify(key))
-		}
+	var d = document.getElementById("keyword");
+	console.log("KEYWORD D", d)
+	if (d != null) {
+		d.removeAttribute("id");
+		var uniqueId = singleMatch+"-"+id;
+		console.log("ID", uniqueId)
+		d.setAttribute("id", uniqueId);
+		console.log("SINGLE OCCURRENCE", singleMatch, uniqueId)
 	}
-
 
 	var labelBoxes = document.getElementsByClassName("label");
 	for (var i = 0; i < labelBoxes.length; i++) {
@@ -449,10 +529,11 @@ function addSingleOccurrences(singleMatch, id) {
 			var listItem = document.createElement("li");
 			var listItemLink = document.createElement("a");
 			listItemLink.appendChild(document.createTextNode(singleMatch));
-			listItemLink.setAttribute("href", "#"+id);
+			listItemLink.setAttribute("href", "#"+uniqueId);
 			listItem.appendChild(listItemLink);
 			var contentDiv = labelBoxes[i].nextElementSibling;
 			var ul = contentDiv.getElementsByTagName("ol");
+			console.log("LIST ITEM", listItem)
 			ul[0].appendChild(listItem);
 		}	
 	}
@@ -467,14 +548,14 @@ function clearAll() {
 	var box = document.getElementById("keywords");
 	box.innerHTML = "";
 
-	var article = document.getElementById("article")
+	var article = document.getElementById("article");
 
-	var articleContent = article.innerHTML
+	var articleContent = article.innerHTML;
 
-	var keywords = document.getElementsByClassName("added-keywords") 
+	var keywords = document.getElementsByClassName("added-keywords");
 	for (var i = 0; i < keywords.length; i++) {
-		var content = keywords[i].innerHTML
-		articleContent = articleContent.replace(keywords[i].outerHTML, content)
+		var content = keywords[i].innerHTML;
+		articleContent = articleContent.replace(keywords[i].outerHTML, content);
 	}
 	article.innerHTML = articleContent;
 }
@@ -500,37 +581,38 @@ function removeSpan() {
 	}
 }
 
+//Code for the 1910s style
 function increaseFont() { 
 	var h3Elements = document.getElementsByTagName("h3");
 	for (var i=0; i < h3Elements.length; i++) {
 		var text = h3Elements[i].innerHTML;
-		var newString = ""
+		var newString = "";
 		var fontSize = 120;
 		if (!text.includes("span")) {
 			for (var l=0; l<text.length; l++) {
 				if (fontSize > 5) {
 					fontSize = fontSize - 5;
-					fontSize = fontSize.toFixed(2)
+					fontSize = fontSize.toFixed(2);
 				}
 				var span = "<span style=\"font-size:"+fontSize+"%\";>"+text[l]+"</span>";
-				newString = newString+span
+				newString = newString+span;
 			} 
 
-			h3Elements[i].innerHTML = newString 
+			h3Elements[i].innerHTML = newString;
 		}
 	}
-	addIcons()
+	addIcons();
 }
 
 function addIcons() {
 	var list = document.getElementById("articleslist");
-	var buttons = list.getElementsByTagName("button")
+	var buttons = list.getElementsByTagName("button");
 
 	for (var i=0; i<buttons.length; i++) {
 		if (buttons[i].childElementCount === 0) {
 			var icon = document.createElement("i");
 			icon.setAttribute("class", "fas fa-fighter-jet");
-			buttons[i].appendChild(icon)
+			buttons[i].appendChild(icon);
 		}
 	}
 }
@@ -544,16 +626,3 @@ $(document).on("click", "#hiddenMetadataBox", function() {
 		$(box[0]).addClass("collapse");
 	}
 })
-
-/*
-
-don't match string inside tags; add all the other metadata (people, places, quotes - with people who quote)
-
-tags: p, span, h1, h2, h3, q, a, li
-
-it does not remove properly the keywords cause it end up in mixing them with the other span. Now I remove them but
-it remains the </span> and the text in between the two span.
-
-It does not remove the span once added, so it would be better to do the changing size trick with the stylesheet.
-
-*/
