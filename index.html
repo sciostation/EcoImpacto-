@@ -3,7 +3,7 @@
 	<head>
 	    <title>Cool down!</title>
 	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-widht, inital-scale=1">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="https://img.icons8.com/external-bluetone-bomsymbols-/91/000000/external-cool-green-energy-ecology-bluetone-bluetone-bomsymbols-.png">
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	    <link rel="stylesheet" id="CSS" type="text/css"> 
@@ -45,7 +45,7 @@
 			    <h3>Metadata</h3>  
 			    	<p>Add your own keywords</p>
 			    	<form>
-					  	<input type="text" name="metadata" id="userInput" placeholder="Type here">
+					  	<input type="text" name="metadata" id="userInput" placeholder="Type here" onkeypress="eventListener(event)">
 	  					<input type="button" value="add" onclick="addNewMetadata()">
 	  				</form>
 
@@ -147,7 +147,7 @@
 			<button class="fab-button" id="year2022" onclick="changeStyleSheet(this)">
 				<i class="fas fa-fan"></i>
 			</button>
-			<button class="fab-button" id="year1920" onclick="changeStyleSheet(this)">
+			<button class="fab-button" id="year1910" onclick="changeStyleSheet(this)">
 				<i class="fas fa-stream"></i>
 			</button>
 	    	<div class="fab-button" title="Change theme">
