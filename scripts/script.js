@@ -198,6 +198,7 @@ function metadataLists(type, occurrence) {
 	}
 }
 
+<<<<<<< HEAD
 function addNewKeyToLocalStorage(text, partialCount) {
 	var title = document.getElementById("title");
 	console.log("TITLE", title, JSON.stringify(title.innerHTML), partialCount.typeof);
@@ -231,6 +232,17 @@ function addFromLocalStorage() {
 		console.log("RETRIEVE STORAGE", lS)
 		var box = document.getElementById("keywords");
 		box.innerHTML = "";
+=======
+function addKeyToLocalStorage(text) {
+	var emptyObject = new Object()
+	localStorage.setItem(text, JSON.stringify(emptyObject))
+}
+
+
+function addFromLocalStorage() {
+	var matches = new Array() 
+	var uniqueMatches = new Array
+>>>>>>> 142de19bf529793e8fdf5bd17e87b1c6971f235c
 
 		if (lS != null || lS != undefined) {
 		
@@ -300,7 +312,11 @@ function changeStyleSheet(element) {
  	if (nameOfTheStyle == "year1910") {
 		d.setAttribute("href", "styles/style_1910.css");
 		increaseFont();
+<<<<<<< HEAD
 		sessionStorage.setItem("theme", "styles/style_1910.css");
+=======
+		sessionStorage.setItem("theme", "styles/style_1910.css")
+>>>>>>> 142de19bf529793e8fdf5bd17e87b1c6971f235c
  	}
 }
 
@@ -323,7 +339,11 @@ function addNewMetadata() {
 
 function findMatches(inputList) {
 	var article = document.getElementById("article");
+<<<<<<< HEAD
 	var articleChildren = article.childNodes;
+=======
+	var articleChildren = article.childNodes
+>>>>>>> 142de19bf529793e8fdf5bd17e87b1c6971f235c
 
 	var matches = new Array();
 
@@ -386,6 +406,7 @@ function findMatches(inputList) {
 }
 
 function addToKeywordsBox(matches, uniqueMatches) {
+<<<<<<< HEAD
 
 	var title = document.getElementById("title");
 
@@ -398,6 +419,10 @@ function addToKeywordsBox(matches, uniqueMatches) {
 		else {
 			id = lS["totalCount"];
 		}
+=======
+	var article = document.getElementById("article");
+	var articleChildren = article.childNodes
+>>>>>>> 142de19bf529793e8fdf5bd17e87b1c6971f235c
 
 	for (var i = 0; i < uniqueMatches.length; i++) {
 		
@@ -436,6 +461,7 @@ function addToKeywordsBox(matches, uniqueMatches) {
 	}
 }
 
+<<<<<<< HEAD
 
 function matchInText(text) {
 	var article = document.getElementById("article");
@@ -464,6 +490,11 @@ function matchInText(text) {
 		var numberOfOccurrences = document.getElementById("numOfOccurrences-"+text);
 	if (count != 0 || count == 0 && numberOfOccurrences.innerText == "") {
 		numberOfOccurrences.appendChild(document.createTextNode(count));
+=======
+function addMetadataToBox(text, count){
+	if (localStorage.getItem(text) == null) {
+		addKeyToLocalStorage(text)
+>>>>>>> 142de19bf529793e8fdf5bd17e87b1c6971f235c
 	}
 }
 
@@ -617,6 +648,7 @@ function addIcons() {
 	}
 }
 
+//Code for small screens
 $(document).on("click", "#hiddenMetadataBox", function() {
 	var box = document.getElementsByTagName("aside");
 	if ($(box[0]).hasClass("collapse")) {
@@ -625,4 +657,8 @@ $(document).on("click", "#hiddenMetadataBox", function() {
 	else {
 		$(box[0]).addClass("collapse");
 	}
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> 142de19bf529793e8fdf5bd17e87b1c6971f235c
