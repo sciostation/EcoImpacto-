@@ -199,8 +199,7 @@ function metadataLists(type, occurrence) {
 }
 
 function addNewKeyToLocalStorage(text, partialCount) {
-	var title = document.getElementById("title")
-	//console.log("TITLE", title, JSON.stringify(title.innerHTML), partialCount.typeof)
+	var title = document.getElementById("title");
 
 	if (localStorage.getItem(JSON.stringify(title.innerHTML)) === null) {
 		var emptyObject = new Object();
@@ -214,43 +213,30 @@ function addNewKeyToLocalStorage(text, partialCount) {
 		if (titleContent[text] == null || titleContent[text] == undefined) {
 			titleContent[text] = {count: partialCount};
 			titleContent["totalCount"] += partialCount;
-			console.log("TITLE CONTENT", titleContent["keywords"]);
 			localStorage.setItem(JSON.stringify(title.innerHTML), JSON.stringify(titleContent));
 		}
-	//console.log("LOCAL STORAGE", localStorage)
 	}
 }
 
 function addFromLocalStorage() {
-	//console.log("fine till here")
 	var title = document.getElementById("title");
-
-	//console.log("and here")
 	if (title != null) {
 		var lS = JSON.parse(localStorage.getItem(JSON.stringify(title.innerHTML)));
-		//console.log("RETRIEVE STORAGE", lS)
 		var box = document.getElementById("keywords");
 		box.innerHTML = "";
 
 		if (lS != null || lS != undefined) {
-			//console.log("also arrived here")
 			var keys = Object.keys(lS);
-			//console.log("KEYS", keys)
 			var idx = 0;
 			for (var i = 0; i < keys.length; i++) {
-				//console.log("KEYYY", keys[i])
 				var keyword = keys[i];
 				if (keyword == "totalCount") {
-					//console.log("FOUND")
 					continue
 				}
-				//console.log(keyword)
 				addMetadataToBox(keyword);
 				matchInText(keyword);
 				count = lS[keyword].count;
-				//console.log(count)
 				for (var l=0; l < count; l++) {
-					//console.log("we are doing it", l)
 					addSingleOccurrences(keyword, idx);
 					idx+=1;
 				}
@@ -258,7 +244,6 @@ function addFromLocalStorage() {
 		}
 	}
 }
-
 
 // code for the accordion
 $(document).on("click", ".accordion", function() {
@@ -311,7 +296,6 @@ function addNewMetadata() {
     var input = document.getElementById("userInput").value;
     if (input != "") {
 		var inputList = input.split(/(?=[ .:;?!~,-`"&|()<>{}\[\]\r\n\s/\\]+)/);
-		//console.log("INPUT LIST", inputList)
 		findMatches(inputList);
 		showOccurrences();
 	}
@@ -356,7 +340,6 @@ function findMatches(inputList) {
 
 
 	stringToMatch += "\\b";
-	//console.log("STRING TO MATCH", stringToMatch)
 	var flag = "gi";
 	var regex = new RegExp(stringToMatch, flag);
 	
@@ -366,15 +349,12 @@ function findMatches(inputList) {
 				var textToCheck = articleChildren[i].innerHTML;
 				textToCheck = textToCheck.replaceAll(/id="[a-zA-Z0-9-\s]*"/g, "");
 				textToCheck = textToCheck.replaceAll(/class="[a-zA-Z0-9-\s]*"/g, "");
-				//console.log("text", textToCheck)
 				var partMatches = textToCheck.match(regex);
 			
 				Array.prototype.push.apply(matches, partMatches);
 			}
-			//console.log("PARTIAL MATCHES", matches, partMatches);
 	}
 	var uniqueMatches = [... new Set(matches)];
-	//console.log("UNIQUE MATCHES", matches, uniqueMatches)
 	addToKeywordsBox(uniqueMatches);
 }
 
@@ -398,11 +378,9 @@ function addToKeywordsBox(uniqueMatches) {
 
 			var regex = new RegExp("-"+uniqueMatches[i]);
 			var count = document.getElementById("numOfOccurrences-"+uniqueMatches[i]).innerHTML.replace(regex, "");
-			//console.log("COUNT", uniqueMatches, Number(count))
 			addNewKeyToLocalStorage(uniqueMatches[i], Number(count));
 			var label = document.getElementById(uniqueMatches[i]+"-key");
 			var content = label.nextElementSibling;
-			//console.log("LC", label, content)
 			var keywordLink = content.getElementsByTagName("a");
 			if (keywordLink.length == 0 && count != 0) {
 				for (var l = 0; l < Number(count); l++) {
@@ -431,10 +409,8 @@ function matchInText(text) {
 			var textToCheck = articleChildren[i].innerHTML;
 			textToCheck = textToCheck.replaceAll(/id="[a-zA-Z0-9-\s]*"/g, "");
 			textToCheck = textToCheck.replaceAll(/class="[a-zA-Z0-9-\s]*"/g, "");
-			//console.log("TEXT TO CHECK", textToCheck)
 			if (textToCheck.match(exactRegex) != null) {
 				var partialCount = textToCheck.match(exactRegex).length;
-				//console.log("PARTIAL COUNT", partialCount, textToCheck.match(exactRegex).length);
 				count += partialCount;
 				articleChildren[i].innerHTML = textToCheck.replaceAll(exactRegex, newString);
 			}
@@ -451,21 +427,18 @@ function addMetadataToBox(text){
 	
 	var box = document.getElementById("keywords");
 	var children = box.getElementsByClassName("label");
-	//console.log("CHILDREN", children)
 	var keyId = text.replace(/\s/g, "");
 	var idx = 0;
-	//check if the label is already present
 	if (children != null) {
 		for (var i=0; i<children.length; i++) {
 			var checkId = children[i].getAttribute("id");
-			//console.log("CHECK ID", checkId)
 			checkId = checkId.replace(/\s/g, "");
 			if (keyId+"-key" == checkId) {
 				idx += 1;
-				//console.log("INDEX", idx)
 			}
 		}
 	}
+
 	//no labels found, create a new label for the keyword
 	if (idx == 0) { 
 		var label = document.createElement("div");
@@ -481,7 +454,6 @@ function addMetadataToBox(text){
 		box.appendChild(content);
 		var list = document.createElement("ol");
 		content.appendChild(list);
-		//console.log("LABEL", label)
 	}
 	
 }
@@ -489,13 +461,10 @@ function addMetadataToBox(text){
 
 function addSingleOccurrences(singleMatch, id) {
 	var d = document.getElementById("keyword");
-	//console.log("KEYWORD D", d)
 	if (d != null) {
 		d.removeAttribute("id");
 		var uniqueId = singleMatch+"-"+id;
-		//console.log("ID", uniqueId)
 		d.setAttribute("id", uniqueId);
-		//console.log("SINGLE OCCURRENCE", singleMatch, uniqueId)
 	}
 
 	var labelBoxes = document.getElementsByClassName("label");
@@ -511,7 +480,6 @@ function addSingleOccurrences(singleMatch, id) {
 			listItem.appendChild(listItemLink);
 			var contentDiv = labelBoxes[i].nextElementSibling;
 			var ul = contentDiv.getElementsByTagName("ol");
-			//console.log("LIST ITEM", listItem)
 			ul[0].appendChild(listItem);
 		}	
 	}
@@ -527,7 +495,6 @@ function clearAll() {
 	box.innerHTML = "";
 
 	var article = document.getElementById("article");
-
 	var articleContent = article.innerHTML;
 
 	var keywords = document.getElementsByClassName("added-keywords");
