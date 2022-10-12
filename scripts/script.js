@@ -434,8 +434,8 @@ function addToKeywordsBox(matches, uniqueMatches) {
 				var keywordLink = contentBoxes[i].getElementsByTagName("a")
 				if (keywordLink.length != count) {
 
-					for (var i = 0; i < matches.length; i++) {
-						addSingleOccurrences(matches[i], id)
+					for (var l = 0; l < matches.length; l++) {
+						addSingleOccurrences(matches[l], id)
 					
 						id += 1 
 					}
