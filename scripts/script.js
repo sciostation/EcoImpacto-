@@ -422,28 +422,20 @@ function addToKeywordsBox(matches, uniqueMatches) {
 		console.log("COUNT", uniqueMatches, Number(count))
 		//count = numOfOccurrences.innerHTML
 		addNewKeyToLocalStorage(uniqueMatches[i], Number(count))
-		
-	}
+		var label = document.getElementById(uniqueMatches[i]+"-key")
+		var content = label.nextElementSibling
+		console.log("LC", label, content)
+		var keywordLink = content.getElementsByTagName("a")
+		if (keywordLink.length == 0 && count != 0) {
 
-	
-	if (matches.length != 0) {
-		var box = document.getElementById("keywords");
-		var contentBoxes = box.getElementsByClassName("content")
-		if (contentBoxes != null) {
-			for (var i=0; i<contentBoxes.length; i++) {
-				var keywordLink = contentBoxes[i].getElementsByTagName("a")
-				if (keywordLink.length == 0) {
-
-					for (var l = 0; l < matches.length; l++) {
-						addSingleOccurrences(matches[l], id)
-					
-						id += 1 
-					}
-				}
+			for (var l = 0; l < Number(count); l++) {
+				addSingleOccurrences(uniqueMatches[i], id)
+			
+				id += 1 
 			}
 		}
 	}
-	//addIdsToLocalStorage(count)
+
 	}
 	else {
 		alert("No matches found")
