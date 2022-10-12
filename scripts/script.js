@@ -432,7 +432,7 @@ function addToKeywordsBox(matches, uniqueMatches) {
 		if (contentBoxes != null) {
 			for (var i=0; i<contentBoxes.length; i++) {
 				var keywordLink = contentBoxes[i].getElementsByTagName("a")
-				if (keywordLink.length == 0 && count != 0) {
+				if (keywordLink.length == 0 && document.getElementById("numOfOccurrences").innerHTML != 0) {
 
 					for (var l = 0; l < matches.length; l++) {
 						addSingleOccurrences(matches[l], id)
