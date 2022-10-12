@@ -4,6 +4,7 @@ body {
 	font-family: 'Helvetica', serif;
 	text-align: justify;
 	background-color: #ffffff;
+	overflow-wrap: break-word;
 }
 
 nav, h1, #dropdownMenuButton {
@@ -322,8 +323,8 @@ figcaption {
 	content: "2022";
 }
 
-.fab-container #year1920:hover::after {
-	content: "1920";
+.fab-container #year1910:hover::after {
+	content: "1910s";
 }
 
 footer {
@@ -367,6 +368,7 @@ footer {
 		display: block;
 	}
 }
+
 
 @media screen and (max-width: 480px), (orientation:portrait) {
 	body {
