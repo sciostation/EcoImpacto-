@@ -460,7 +460,7 @@ function matchInText(text) {
 	var exactRegex = RegExp("(?<!>)\\b"+text+"\\b", "g");
 	var newString = "<span class=\"added-keywords\" id=\"keyword\">" + text + "</span>";
 		for (let i = 0; i < articleChildren.length; i++) {
-			if (articleChildren[i].nodeName != "FIGURE"  && articleChildren[i].nodeName != "#text" && articleChildren[i].nodeName != "#comment" && articleChildren[i].nodeName != "SPAN") {
+			if (articleChildren[i].nodeName != "FIGURE"  && articleChildren[i].nodeName != "#text" && articleChildren[i].nodeName != "#comment") {
 				var textToCheck = articleChildren[i].innerHTML
 				textToCheck = textToCheck.replaceAll(/id="[a-zA-Z0-9-\s]*"/g, "")
 				textToCheck = textToCheck.replaceAll(/class="[a-zA-Z0-9-\s]*"/g, "")
